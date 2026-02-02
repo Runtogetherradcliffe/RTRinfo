@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Runs | Run Together Radcliffe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            font-weight: 300;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
+        .back-link {
+            color: #f5a623;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-link:hover {
+            color: #ffc966;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #888;
+        }
+
+        .error {
+            background: #1a1010;
+            border: 1px solid #3a1a1a;
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            color: #c87c7c;
+        }
+
+        .run-card {
+            background: #111;
+            border-left: 3px solid #f5a623;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .run-card.cancelled {
+            opacity: 0.5;
+            border-left-color: #666;
+        }
+
+        .run-card.cancelled .run-title::after {
+            content: " — CANCELLED";
+            color: #c87c7c;
+            font-size: 0.8rem;
+        }
+
+        .run-date {
+            font-size: 0.85rem;
+            color: #f5a623;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .run-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .run-details {
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .run-details span {
+            display: inline-block;
+            margin-right: 1.5rem;
+        }
+
+        .run-details .icon {
+            margin-right: 0.3rem;
+        }
+
+        .run-notes {
+            color: #bbb;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #222;
+        }
+
+        .run-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: #f5a623;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .run-link:hover {
+            color: #ffc966;
+        }
+
+        .no-runs {
+            text-align: center;
+            padding: 3rem;
+            color: #888;
+        }
+
+        .past-runs-toggle {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #ccc;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .past-runs-toggle:hover {
+            background: #252525;
+            border-color: #f5a623;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #222;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #1a1a1a;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #f5a623;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .run-details span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to main page</a>
+            <h1>Social Runs</h1>
+            <p class="subtitle">Member-organised runs — no booking needed, just turn up!</p>
+        </header>
+
+        <main id="runs-container">
+            <div class="loading">Loading social runs...</div>
+        </main>
+
+        <footer>
+            <p><a href="index.html">Run Together Radcliffe</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const SHEET_ID = '19_174EJY0Vlr4syA7m5RDWzeQb94n15OCHHLMA0uDYo';
+
+        async function fetchRuns() {
+            // Use Google's visualization API which supports JSONP-style callbacks
+            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+
+                // Google wraps the JSON in a callback, extract just the JSON
+                const jsonMatch = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);?$/);
+                if (!jsonMatch) throw new Error('Invalid response format');
+
+                const data = JSON.parse(jsonMatch[1]);
+                return parseGoogleData(data);
+            } catch (error) {
+                console.error('Error fetching runs:', error);
+                throw error;
+            }
+        }
+
+        function parseGoogleData(data) {
+            const cols = data.table.cols.map(col =>
+                (col.label || '').trim().toLowerCase().replace(/[^a-z0-9]/g, '_')
+            );
+            const runs = [];
+
+            data.table.rows.forEach(row => {
+                const run = {};
+                row.c.forEach((cell, index) => {
+                    if (cell) {
+                        // Handle different value types
+                        run[cols[index]] = cell.f || cell.v || '';
+                    } else {
+                        run[cols[index]] = '';
+                    }
+                });
+                runs.push(run);
+            });
+
+            return runs;
+        }
+
+        function parseDate(dateStr) {
+            if (!dateStr) return null;
+            // Handle various date formats
+            const parts = dateStr.split('/');
+            if (parts.length === 3) {
+                // Assume DD/MM/YYYY format
+                return new Date(parts[2], parts[1] - 1, parts[0]);
+            }
+            return new Date(dateStr);
+        }
+
+        function formatDate(date) {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            return `${days[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+        }
+
+        function formatTime(timeStr) {
+            if (!timeStr) return '';
+            // Remove seconds if present
+            return timeStr.replace(/:00$/, '');
+        }
+
+        function renderRuns(runs) {
+            const container = document.getElementById('runs-container');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Filter and sort runs
+            const upcomingRuns = [];
+            const pastRuns = [];
+
+            runs.forEach(run => {
+                if (!run.date) return;
+                const runDate = parseDate(run.date);
+                if (!runDate || isNaN(runDate)) return;
+
+                const isCancelled = run.cancel_ && run.cancel_.toLowerCase().includes('yes');
+
+                if (runDate >= today) {
+                    upcomingRuns.push({ ...run, parsedDate: runDate, isCancelled });
+                } else {
+                    pastRuns.push({ ...run, parsedDate: runDate, isCancelled });
+                }
+            });
+
+            // Sort upcoming by date ascending, past by date descending
+            upcomingRuns.sort((a, b) => a.parsedDate - b.parsedDate);
+            pastRuns.sort((a, b) => b.parsedDate - a.parsedDate);
+
+            if (upcomingRuns.length === 0 && pastRuns.length === 0) {
+                container.innerHTML = '<div class="no-runs">No social runs scheduled at the moment. Check back soon!</div>';
+                return;
+            }
+
+            let html = '';
+
+            if (upcomingRuns.length > 0) {
+                html += '<div class="section-label">Upcoming Runs</div>';
+                upcomingRuns.forEach(run => {
+                    html += renderRunCard(run);
+                });
+            } else {
+                html += '<div class="no-runs">No upcoming social runs scheduled. Check back soon!</div>';
+            }
+
+            if (pastRuns.length > 0) {
+                html += `<button class="past-runs-toggle" onclick="togglePastRuns()">Show past runs (${pastRuns.length})</button>`;
+                html += '<div id="past-runs" style="display: none;">';
+                html += '<div class="section-label">Past Runs</div>';
+                pastRuns.slice(0, 10).forEach(run => {
+                    html += renderRunCard(run);
+                });
+                if (pastRuns.length > 10) {
+                    html += `<p style="color: #666; text-align: center; padding: 1rem;">And ${pastRuns.length - 10} more...</p>`;
+                }
+                html += '</div>';
+            }
+
+            container.innerHTML = html;
+        }
+
+        function renderRunCard(run) {
+            const cancelledClass = run.isCancelled ? ' cancelled' : '';
+
+            let detailsHtml = '';
+            if (run.start_time) {
+                detailsHtml += `<span><span class="icon">🕐</span>${formatTime(run.start_time)}${run.end_time ? ' - ' + formatTime(run.end_time) : ''}</span>`;
+            }
+            if (run.location) {
+                detailsHtml += `<span><span class="icon">📍</span>${run.location}</span>`;
+            }
+            if (run.distance) {
+                detailsHtml += `<span><span class="icon">📏</span>${run.distance}</span>`;
+            }
+
+            let notesHtml = '';
+            if (run.notes && run.notes.trim()) {
+                notesHtml = `<div class="run-notes">${run.notes}</div>`;
+            }
+
+            let linkHtml = '';
+            if (run.route_url && run.route_url.trim() && !run.isCancelled) {
+                linkHtml = `<a href="${run.route_url}" class="run-link" target="_blank" rel="noopener">View route →</a>`;
+            }
+
+            return `
+                <div class="run-card${cancelledClass}">
+                    <div class="run-date">${formatDate(run.parsedDate)}</div>
+                    <div class="run-title">${run.title || 'Social Run'}</div>
+                    ${detailsHtml ? `<div class="run-details">${detailsHtml}</div>` : ''}
+                    ${notesHtml}
+                    ${linkHtml}
+                </div>
+            `;
+        }
+
+        function togglePastRuns() {
+            const pastRuns = document.getElementById('past-runs');
+            const button = document.querySelector('.past-runs-toggle');
+            if (pastRuns.style.display === 'none') {
+                pastRuns.style.display = 'block';
+                button.textContent = 'Hide past runs';
+            } else {
+                pastRuns.style.display = 'none';
+                button.textContent = button.textContent.replace('Hide', 'Show');
+            }
+        }
+
+        // Load and render
+        fetchRuns()
+            .then(runs => renderRuns(runs))
+            .catch(error => {
+                document.getElementById('runs-container').innerHTML = `
+                    <div class="error">
+                        Unable to load social runs. Please try refreshing the page.
+                    </div>
+                `;
+            });
+    </script>
+</body>
+</html>
