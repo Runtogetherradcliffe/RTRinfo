@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend Roundup – 7 March 2026 — Run Together Radcliffe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            font-weight: 300;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #666;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            margin-bottom: 3rem;
+        }
+
+        .back-link:hover {
+            color: #f5a623;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 1.5rem;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .roundup-date {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: #f5a623;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #f5a623;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #222;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0.6rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        a {
+            color: #f5a623;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #ffc966;
+        }
+
+        /* Venue cards — parkrun */
+        .venue-card {
+            background: #111;
+            border-left: 3px solid #f5a623;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .venue-card h3 {
+            margin-bottom: 0.6rem;
+        }
+
+        .venue-card p {
+            margin-bottom: 0;
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+
+        /* Race cards */
+        .race-day-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #f5a623;
+            margin-bottom: 1rem;
+            margin-top: 1.75rem;
+        }
+
+        .race-day-label:first-child {
+            margin-top: 0;
+        }
+
+        .race-card {
+            background: #111;
+            border: 1px solid #1a1a1a;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+            border-radius: 6px;
+            transition: border-color 0.2s ease;
+        }
+
+        .race-card:hover {
+            border-color: #333;
+        }
+
+        .race-card h3 {
+            margin-bottom: 0.6rem;
+        }
+
+        .race-card p {
+            margin-bottom: 0;
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+
+        /* Trail run card */
+        .trail-card {
+            background: linear-gradient(135deg, #0d1a0d 0%, #111 100%);
+            border: 1px solid #1a3a1a;
+            padding: 1.25rem 1.5rem;
+            border-radius: 6px;
+        }
+
+        .trail-card h3 {
+            color: #7cb87c;
+            margin-bottom: 0.6rem;
+        }
+
+        .trail-card p {
+            margin-bottom: 0;
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+
+        /* Photo gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #111;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.85;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.04);
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.93);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: #888;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #fff;
+        }
+
+        .closing {
+            text-align: center;
+            font-size: 1.5rem;
+            padding-top: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #1a1a1a;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.6rem; }
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <a href="index.html" class="back-link">← Back to RTR</a>
+
+        <header>
+            <img src="logo.png" alt="Run Together Radcliffe" class="logo" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+            <svg id="fallback-logo" class="logo" style="display:none;" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="60" r="58" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+                <text x="60" y="68" text-anchor="middle" fill="#f5a623" font-family="Arial, sans-serif" font-size="28" font-weight="bold">RTR</text>
+            </svg>
+            <h1>Weekend Roundup</h1>
+            <span class="roundup-date">7 March 2026</span>
+        </header>
+
+        <!-- PARKRUN -->
+        <section>
+            <h2>🏃 Parkrun</h2>
+
+            <p>What a weekend for RTR! 16 runners were out at parkrun across 5 venues on Saturday morning. Here's how everyone got on.</p>
+
+            <div class="venue-card">
+                <h3>Bolton</h3>
+                <p>Josh Young had a great morning at Bolton, first RTR runner home on a course that rewards consistent running down by the river. Rosalyn Dines also put in a solid effort — great to see her flying the flag on this challenging course.</p>
+            </div>
+
+            <div class="venue-card">
+                <h3>Clarence</h3>
+                <p>Over at Clarence Park in Bury, Christopher Mihalyi was leading the way for the group, running strongly on a course that weaves through a lovely mix of paths and grassland. Stephen Crowe also took on the course and put in a fine effort.</p>
+            </div>
+
+            <div class="venue-card">
+                <h3>Heaton Park</h3>
+                <p>The biggest turnout of the day, with 6 RTR members at Heaton! Dale Richards was first back for the group on what is clearly his home turf. Paul Cox was close behind and in good form. Cheryl Stewardson ran brilliantly — looking really consistent at the moment. Paige Ashworth tackled the course well, and Jacqui Warden put in another solid effort. Also great to see Chris back at Heaton 💜</p>
+            </div>
+
+            <div class="venue-card">
+                <h3>Peel</h3>
+                <p>3 RTR members made the trip to Peel. Kath Biddle was quickest of the RTR contingent, running with her usual composure on a course she clearly knows well. Fiona Case and Derek Case both had fine outings too — brilliant to see the Peel regulars out representing the group.</p>
+            </div>
+
+            <div class="venue-card">
+                <h3>Stretford</h3>
+                <p>Andrew Whitehead and Alison Whitehead both headed to Stretford and crossed the line together — a perfectly coordinated effort on a popular and well-loved course.</p>
+            </div>
+
+        </section>
+
+        <!-- RACES -->
+        <section>
+            <h2>🏅 Races</h2>
+
+            <div class="race-day-label">Sunday 8 March</div>
+
+            <div class="race-card">
+                <h3>EDP Lisbon Half Marathon</h3>
+                <p>Mark Taylor and Julie Smith travelled to Lisbon to take on one of Europe's great running occasions — the EDP Lisbon Half Marathon, part of the prestigious Superhalfs series. The race starts on the iconic Ponte 25 de Abril bridge, giving runners an exclusive chance to cross it on foot with panoramic views over the city, before following the Tagus riverside to a stunning finish in front of the Mosteiro dos Jerónimos. With 35,000 runners from across the world, it doesn't get much bigger than this. For Mark it was his 2nd race in the Superhalfs series, and for Julie her 3rd — brilliant efforts from both of them! 👏</p>
+            </div>
+
+            <div class="race-card">
+                <h3>Chester 10k</h3>
+                <p>Also on Sunday, Steve Crowe and Sarah Wilson took on the Chester 10k — a lovely flat, fast course through one of England's most beautiful historic cities. A great early-season race and brilliant efforts from both of them. Well done! 👏</p>
+            </div>
+
+        </section>
+
+        <!-- TRAIL RUN -->
+        <section>
+            <h2>🥾 Social Trail Run</h2>
+
+            <div class="trail-card">
+                <h3>Cotton Steel Rail Trail — Stage 2</h3>
+                <p>This weekend also saw a brilliant group of RTR members lace up for something a little different. Dale, Delphine, Clive, Nick, Paula, Kath, Jacqui, Nikki and Paul completed Stage 2 of the Cotton Steel Rail Trail — running from Chinley to Romiley on a fantastic long-distance route that links Sheffield to Manchester through the Peak District. The trail follows in the footsteps of the steel and cotton workers who used to travel the Hope Valley line to escape the cities for fresh air and open countryside, and Stage 2 takes in some wonderful Peak District scenery along the way. What a cracking way to spend the weekend — can't wait for Stage 3! 💜</p>
+            </div>
+
+        </section>
+
+        <!-- GALLERY -->
+        <section>
+            <h2>📸 Photos</h2>
+            <div class="gallery">
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo1.jpg')">
+                    <img src="roundup-photos/photo1.jpg" alt="RTR at parkrun">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo2.jpg')">
+                    <img src="roundup-photos/photo2.jpg" alt="RTR at parkrun">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo3.jpg')">
+                    <img src="roundup-photos/photo3.jpg" alt="RTR at parkrun">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo4.jpg')">
+                    <img src="roundup-photos/photo4.jpg" alt="RTR at parkrun">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo5.jpg')">
+                    <img src="roundup-photos/photo5.jpg" alt="RTR at races">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo6.jpg')">
+                    <img src="roundup-photos/photo6.jpg" alt="RTR at races">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo7.jpg')">
+                    <img src="roundup-photos/photo7.jpg" alt="RTR at races">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo8.jpg')">
+                    <img src="roundup-photos/photo8.jpg" alt="RTR at races">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo9.jpg')">
+                    <img src="roundup-photos/photo9.jpg" alt="RTR weekend">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('roundup-photos/photo10.jpg')">
+                    <img src="roundup-photos/photo10.jpg" alt="RTR weekend">
+                </div>
+            </div>
+        </section>
+
+        <div class="closing">💜🏃‍♀️🏃‍♂️</div>
+
+        <footer>
+            <p>Run Together Radcliffe — Part of the <a href="https://runtogether.co.uk" target="_blank" rel="noopener">England Athletics Run Together</a> programme</p>
+        </footer>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
