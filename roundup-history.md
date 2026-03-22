@@ -64,3 +64,40 @@ A running summary of each week's post, used to maintain continuity in language, 
 - "first back for the team" (Dale Richards)
 - "first RTR runner home" (Kath Biddle, Fiona Case)
 - "first of the RTR pair home" (Andrew Whitehead)
+
+---
+
+## 21 March 2026
+
+**Parkrun — 12 runners across 11 venues**
+
+- **Bolton**: Josh Young (ran strongly). Fiona & Derek Case volunteering 👏
+- **Chadderton Hall**: Bernie Boardman
+- **Fulwell Quarry** (Sunderland): Stephen Crowe
+- **Huddersfield**: Angela Pradena
+- **Morecambe Prom**: Paul Cox
+- **Oldham**: Dale Richards
+- **Pennington Flash**: Andrew Whitehead (led the way, course PB 💜), Alison Whitehead (parkwalk)
+- **Sale Water**: Martyn James (parkwalk)
+- **Woodbank**: Paige Ashworth
+- **Worsley Woods**: Ros Dines
+- **Y Promenâd, Llandrillo-yn-Rhos**: Kath Biddle (first visit to venue)
+
+**Milestones / achievements**:
+- Andrew Whitehead: course PB at Pennington Flash
+
+**Races — Saturday 21 March**
+- Paula Crossland, Neil Naisbitt, Charlene Leyden, Lucie Tighe, Mark Taylor — Sunnywood Village Link Challenge (20 miles, Burrs Country Park, Bury)
+- Mike Aiken — Runalot Backyard Ultra (Ainsworth, over 40 miles)
+
+**Non-local venue descriptions used**:
+- Fulwell Quarry (Sunderland): reclaimed nature reserve, multi-terrain
+- Morecambe Prom: flat seafront promenade, Lake District views
+- Y Promenâd (North Wales): seaside route, Combermere Gardens to Porth Eirias
+
+**Phrases used**
+- "headed to Bolton and ran strongly" (Josh Young)
+- "flew the RTR flag" (Bernie Boardman)
+- "led the way" (Andrew Whitehead)
+- "enjoyed a parkwalk" (Alison Whitehead, Martyn James)
+- "tackled the trails" (Ros Dines)
