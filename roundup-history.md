@@ -101,3 +101,49 @@ A running summary of each week's post, used to maintain continuity in language, 
 - "led the way" (Andrew Whitehead)
 - "enjoyed a parkwalk" (Alison Whitehead, Martyn James)
 - "tackled the trails" (Ros Dines)
+
+---
+
+## 29 March 2026
+
+**Parkrun — 24 runners across 7 venues**
+
+- **Heaton Park** (817 runners): Neil Naisbitt (headed up the RTR pack), Dale Richards, Cheryl Stewardson, Jacqui Warden, Barbara Fortune (FIRST EVER parkrun, C25K graduate), Ken Smith, Fiona Case, Helen Naisbitt, Stephen Crowe, Chris Grayshon, Tracy Wroe, Alicia Ricketts (FIRST EVER parkrun, C25K graduate), Georgia Taylor (course PB), Derek Case (parkwalk)
+- **Alderford Lake** (110 runners): Ros Dines
+- **Bolton** (258 runners): Josh Young, Paula Crosland
+- **Clarence, Belfast** (75 runners): Michael Aiken (50th parkrun milestone + 3rd male overall)
+- **Northwich** (417 runners): Andrew Whitehead (first visit), Alison Whitehead (first visit)
+- **The Cinder Track, Whitby** (135 runners): Kath Biddle (3rd female overall, first visit)
+- **Ziegelwiese, Germany** (163 runners): Julie Smith (first visit, in Berlin for Sunday's half marathon)
+
+**Special occasion**: RTR Couch to 5K graduation at Heaton Park. All 8 runners completed their first 5k: Alicia Ricketts, Barbara Fortune, Christine Ince, Julie Denny, Rachel Fiske, Sairah Rehman, Tanja Brajkovic, Tobias Wroe. Heaton Park was listed first (not alphabetical) to reflect this.
+
+**Milestones / achievements**:
+- Barbara Fortune: 1st ever parkrun (C25K graduate, registered with RTR)
+- Alicia Ricketts: 1st ever parkrun (C25K graduate, registered with RTR)
+- Michael Aiken: 50th parkrun at Clarence, AND 3rd male overall (75 runners)
+- Georgia Taylor: course PB at Heaton Park (39:16, previously 41:21)
+- Kath Biddle: 3rd female overall at Whitby Cinder Track (135 runners); first visit to venue
+- Ken Smith: back at Heaton Park after parkrunning in Western Australia
+- Derek Case: parkwalk (56:34) - likely supporting C25K graduates as run leader
+
+**Races — Saturday 28 March**
+- Paul Cox: Generali Prague Half Marathon (Superhalfs race 4 for Paul: Lisbon, Copenhagen, Valencia, Prague)
+
+**Races — Sunday 29 March**
+- Julie Smith: Generali Berlin Half Marathon (Superhalfs race 4 for Julie: Cardiff, Valencia, Lisbon, Berlin)
+
+**Non-local venue descriptions used**:
+- The Cinder Track, Whitby: historic tree-lined trail along former railway line, sweeping views over Esk Valley and Whitby Viaduct
+- Ziegelwiese, Germany: brief mention only (Julie's Berlin prep parkrun)
+
+**Phrases used**
+- "headed up the RTR pack" (Neil Naisbitt)
+- "ran solidly" (Cheryl Stewardson)
+- "in great form" (Tracy Wroe)
+- "had an excellent outing" (Georgia Taylor)
+- "flying the RTR flag well" (Ros Dines)
+- "in excellent form" (Paula Crosland)
+- "rounded things off with a parkwalk" (Derek Case)
+- "very much worth the journey" (Kath Biddle at Whitby)
+- "a new one ticked off" (Northwich first visit, Andrew/Alison)
