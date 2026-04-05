@@ -147,3 +147,42 @@ A running summary of each week's post, used to maintain continuity in language, 
 - "rounded things off with a parkwalk" (Derek Case)
 - "very much worth the journey" (Kath Biddle at Whitby)
 - "a new one ticked off" (Northwich first visit, Andrew/Alison)
+
+---
+
+## 5 April 2026
+
+**Parkrun — 17 runners across 7 venues**
+
+- **Bolton** (230 runners): Paula Crosland (ran well)
+- **Burnage** (252 runners): Fiona Case (first back for RTR), Derek Case (parkwalk ~46 min)
+- **Clarence** (92 runners): Neil Naisbitt (headed up the contingent), Stephen Crowe, Helen Naisbitt
+- **Heaton Park** (809 runners): Dale Richards (first back for group), Andrew Whitehead, Kath Biddle, Nicholas Coleman, Chris Grayshon, Jane G, Angela Pradena (parkwalk ~42 min)
+- **Pendle** (78 runners): Delphine Bugarel (first visit to venue)
+- **Pontypridd** (465 runners): Julie Smith (first visit to venue)
+- **Worsley Woods** (606 runners): Tracy Wroe, Chris (parkwalk ~50 min)
+
+**Milestones / achievements**: None this week.
+
+**Races**: None this week.
+
+**Social run**
+- Steel Cotton Rail Trail Stage 3: Andy, Clive, Delphine, Kath, Paula, Rachel and Paul. During Storm Dave - hail, snow and high winds on the peaks.
+
+**Non-local venue descriptions used**:
+- Pendle: multi-surface mix of grass, tarmac, trail and stone paths at Holt House Playing Fields, Colne
+- Pontypridd: flat tarmac route through Ynysangharad War Memorial Park on the banks of the River Taff, South Wales
+
+**Phrases used**
+- "first back for the group" (Dale Richards at Heaton)
+- "first back for RTR" (Fiona Case at Burnage)
+- "headed up the RTR contingent" (Neil Naisbitt at Clarence)
+- "ran strongly behind him" (Andrew Whitehead, Kath Biddle at Heaton)
+- "putting in good efforts" (Nicholas Coleman, Chris Grayshon at Heaton)
+- "had a fine outing" (Jane G at Heaton)
+- "rounded things off with a lovely parkwalk" (Angela Pradena at Heaton)
+- "enjoyed a fine parkwalk" (Derek Case at Burnage)
+- "made the trip over to" (Delphine at Pendle)
+- "headed all the way to South Wales" (Julie at Pontypridd)
+- "was in great form" (Tracy Wroe at Worsley Woods)
+- "push through every bit of it" (trail run in Storm Dave)
