@@ -186,3 +186,47 @@ A running summary of each week's post, used to maintain continuity in language, 
 - "headed all the way to South Wales" (Julie at Pontypridd)
 - "was in great form" (Tracy Wroe at Worsley Woods)
 - "push through every bit of it" (trail run in Storm Dave)
+
+---
+
+## 12 April 2026
+
+**Parkrun — 15 runners across 8 venues**
+
+- **Clarence** (67 runners): Stephen Crowe
+- **Crosby** (212 runners): Andrew Whitehead (led the way), Alison Whitehead (first visit for both)
+- **Heaton Park** (791 runners): Dale Richards (first back for RTR), Mark Taylor, Josh Young, Jane Grantham, Chris Grayshon, Chris Chris
+- **Muncaster Castle** (122 runners): Andrea Booth (first visit)
+- **Newborough Forest** (224 runners): Michael Aiken (1st in VM35-39, 8 in category)
+- **Peel** (502 runners): Tracy Wroe
+- **Pendle** (80 runners): Angela Pradena (parkwalk, first visit)
+- **Sewerby** (273 runners): Lucie Tighe
+
+**Milestones / achievements**:
+- Michael Aiken: 1st in VM35-39 at Newborough Forest (8 runners in category)
+
+**Races — Saturday 12 April**
+- Julie Smith, Neil Naisbitt, Delphine Bugarel, Clive Koffman — RunThrough Lake District Running Festival 23k (Keswick, snow and hail)
+- Kath Biddle — She Ultra 50k (Abersoch to Pwllheli, North Wales, snow and hail)
+
+**Races — Sunday 13 April**
+- Chris Mihalyi — Montane Howgills Trail 26 (Sedbergh, very windy)
+- Sarah Wilson — Mersey Tunnel 10k (Liverpool to Wirral)
+
+**Non-local venue descriptions used**:
+- Muncaster Castle: undulating 3-lap course on tarmac and gravel tracks within the castle estate, with views of Scafell Pike
+- Newborough Forest: sand, forest trails and fire roads alongside the beach overlooking Llanddwyn Island, Anglesey
+- Sewerby: cliff-top paths and hall grounds near Bridlington, East Yorkshire coast
+
+**Phrases used**
+- "flew the RTR flag" (Stephen Crowe at Clarence)
+- "led the way for the pair" (Andrew Whitehead at Crosby)
+- "first back for RTR" (Dale Richards at Heaton)
+- "was in good form" (Mark Taylor at Heaton)
+- "tackled the course well" (Josh Young at Heaton)
+- "had a solid outing" (Jane Grantham at Heaton)
+- "put in another reliable effort" (Chris Grayshon at Heaton)
+- "ventured up to the Lake District" (Andrea Booth at Muncaster)
+- "had a fine morning" (Tracy Wroe at Peel)
+- "enjoyed a parkwalk" (Angela Pradena at Pendle)
+- "headed all the way to the East Yorkshire coast" (Lucie Tighe at Sewerby)
