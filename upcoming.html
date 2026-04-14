@@ -8,93 +8,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            background:#0a0a0a; color:#fff;
-            font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-            line-height:1.7; font-weight:300; padding:2rem; min-height:100vh;
-        }
-        .container { max-width:720px; margin:0 auto; padding:2rem 0; }
-        .back-link {
-            color:#555; font-size:0.9rem; text-decoration:none;
-            display:inline-flex; align-items:center; gap:0.35rem;
-            margin-bottom:1.5rem; transition:color 0.2s;
-        }
-        .back-link:hover { color:#f5a623; }
-        h1 { font-size:1.8rem; font-weight:500; letter-spacing:-0.02em; margin-bottom:0.4rem; }
-        .tagline { color:#888; font-size:0.95rem; margin-bottom:2.5rem; }
-        a { color:#f5a623; text-decoration:none; transition:color 0.2s; }
-        a:hover { color:#ffc966; }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:#0a0a0a;color:#fff;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.7;font-weight:300;padding:2rem;min-height:100vh;}
+        .container{max-width:720px;margin:0 auto;padding:2rem 0;}
+        .back-link{color:#555;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;margin-bottom:1.5rem;transition:color .2s;}
+        .back-link:hover{color:#f5a623;}
+        h1{font-size:1.8rem;font-weight:500;letter-spacing:-.02em;margin-bottom:.4rem;}
+        .tagline{color:#888;font-size:.95rem;margin-bottom:2.5rem;}
+        a{color:#f5a623;text-decoration:none;transition:color .2s;}
+        a:hover{color:#ffc966;}
 
-        .week-card {
-            background:#111; border:1px solid #1a1a1a;
-            border-left:3px solid #f5a623; border-radius:0 12px 12px 0;
-            padding:1.25rem 1.5rem; margin-bottom:1.25rem;
-        }
-        .week-card.on-tour {
-            border-left-color:#ffc966;
-            background:linear-gradient(135deg,#1a1510 0%,#111 100%);
-        }
-        .week-header {
-            display:flex; justify-content:space-between;
-            align-items:flex-start; margin-bottom:0.75rem;
-        }
-        .week-date { font-size:1.15rem; font-weight:500; }
-        .week-time { color:#555; font-size:0.85rem; margin-top:0.1rem; }
-        .on-tour-badge {
-            background:#1a1510; border:1px solid #f5a623; color:#f5a623;
-            font-size:0.72rem; font-weight:500; padding:0.2rem 0.6rem;
-            border-radius:20px; white-space:nowrap; flex-shrink:0;
-            margin-left:0.75rem; text-transform:uppercase; letter-spacing:0.05em;
-        }
-        .special-note { color:#f5a623; font-size:0.875rem; margin-bottom:0.6rem; font-style:italic; }
-        .meeting-location {
-            display:flex; align-items:center; gap:0.4rem;
-            color:#888; font-size:0.875rem; margin-bottom:1rem;
-        }
-        .meeting-location svg { flex-shrink:0; color:#555; }
+        .week-card{background:#111;border:1px solid #1a1a1a;border-left:3px solid #f5a623;border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.25rem;}
+        .week-card.on-tour{border-left-color:#ffc966;background:linear-gradient(135deg,#1a1510 0%,#111 100%);}
+        .week-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;}
+        .week-date{font-size:1.15rem;font-weight:500;}
+        .week-time{color:#555;font-size:.85rem;margin-top:.1rem;}
+        .on-tour-badge{background:#1a1510;border:1px solid #f5a623;color:#f5a623;font-size:.72rem;font-weight:500;padding:.2rem .6rem;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-left:.75rem;text-transform:uppercase;letter-spacing:.05em;}
+        .special-note{color:#f5a623;font-size:.875rem;margin-bottom:.6rem;font-style:italic;}
+        .meeting-location{display:flex;align-items:center;gap:.4rem;color:#888;font-size:.875rem;margin-bottom:1rem;}
+        .meeting-location svg{flex-shrink:0;color:#555;}
 
-        .routes-pair { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
-        .route-box {
-            background:#0d0d0d; border:1px solid #222; border-radius:8px;
-            padding:0.875rem 1rem; display:flex; flex-direction:column; gap:0.4rem;
-        }
-        .route-box.faded { opacity:0.25; }
-        .terrain-badge {
-            font-size:0.68rem; font-weight:600; text-transform:uppercase;
-            letter-spacing:0.07em; padding:0.15rem 0.5rem;
-            border-radius:8px; align-self:flex-start;
-        }
-        .badge-trail { background:#0d1a0d; color:#7cb87c; border:1px solid #1a3a1a; }
-        .badge-road  { background:#0d1221; color:#6b9fd4; border:1px solid #1a2a44; }
-        .badge-mixed { background:#1a1208; color:#d4a84b; border:1px solid #3a2a0a; }
-        .route-name { font-size:0.92rem; color:#fff; line-height:1.4; flex:1; }
-        .view-route-link {
-            font-size:0.8rem; color:#f5a623; margin-top:0.25rem;
-            display:inline-flex; align-items:center; gap:0.2rem; transition:color 0.2s;
-        }
-        .view-route-link:hover { color:#ffc966; }
+        .routes-pair{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+        .route-box{background:#0d0d0d;border:1px solid #222;border-radius:8px;padding:.875rem 1rem;display:flex;flex-direction:column;gap:.4rem;}
+        .route-box.faded{opacity:.25;}
+        .terrain-badge{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:.15rem .5rem;border-radius:8px;align-self:flex-start;}
+        .badge-trail{background:#0d1a0d;color:#7cb87c;border:1px solid #1a3a1a;}
+        .badge-road{background:#0d1221;color:#6b9fd4;border:1px solid #1a2a44;}
+        .badge-mixed{background:#1a1208;color:#d4a84b;border:1px solid #3a2a0a;}
+        .route-name{font-size:.92rem;color:#fff;line-height:1.4;flex:1;}
 
-        .book-tip {
-            background:#0d1a0d; border:1px solid #1a3a1a; border-radius:8px;
-            padding:0.875rem 1.25rem; color:#7cb87c; font-size:0.875rem; margin-top:0.25rem;
-        }
-        .book-tip a { color:#7cb87c; text-decoration:underline; }
+        .route-links{display:flex;gap:.5rem;margin-top:.35rem;flex-wrap:wrap;}
+        .btn-strava,.btn-map{display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;padding:.25rem .6rem;border-radius:5px;border:1px solid;transition:all .2s;white-space:nowrap;}
+        .btn-strava{color:#fc4c02;border-color:#3a1a0a;background:#1a0d05;}
+        .btn-strava:hover{background:#2a1208;border-color:#fc4c02;color:#fc4c02;}
+        .btn-map{color:#f5a623;border-color:#2a2a2a;background:transparent;}
+        .btn-map:hover{border-color:#f5a623;background:#1a1510;color:#f5a623;}
 
-        footer {
-            text-align:center; padding-top:2rem; margin-top:3rem;
-            border-top:1px solid #1a1a1a; color:#555; font-size:0.85rem;
-        }
-        @media (max-width:520px) {
-            body { padding:1rem; }
-            h1 { font-size:1.5rem; }
-            .routes-pair { grid-template-columns:1fr; }
-            .week-card { padding:1rem 1.1rem; }
+        .book-tip{background:#0d1a0d;border:1px solid #1a3a1a;border-radius:8px;padding:.875rem 1.25rem;color:#7cb87c;font-size:.875rem;margin-top:.25rem;}
+        .book-tip a{color:#7cb87c;text-decoration:underline;}
+        footer{text-align:center;padding-top:2rem;margin-top:3rem;border-top:1px solid #1a1a1a;color:#555;font-size:.85rem;}
+
+        @media(max-width:520px){
+            body{padding:1rem;}
+            h1{font-size:1.5rem;}
+            .routes-pair{grid-template-columns:1fr;}
+            .week-card{padding:1rem 1.1rem;}
         }
     </style>
 </head>
 <body>
-<!-- Generated 14 Apr 2026 from Annual_Schedule_MASTER.xlsx -->
+<!-- Generated 14 Apr 2026 from Annual_Schedule_MASTER.xlsx + Google Sheet -->
 <div class="container">
     <header>
         <a href="index.html" class="back-link">
@@ -119,12 +82,12 @@
             <div class="route-box">
         <span class="terrain-badge badge-trail">Trail 8k</span>
         <div class="route-name">Ainsworth, Bradley Fold, Canal</div>
-        <a class="view-route-link" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--ainsworth-bradley-fold-canal">View route <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3243264226029184442" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--ainsworth-bradley-fold-canal">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
     </div>
             <div class="route-box">
         <span class="terrain-badge badge-trail">Trail 5k</span>
         <div class="route-name">Springwater park</div>
-        <a class="view-route-link" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--springwater-park">View route <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3267571547081021606" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--springwater-park">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
     </div>
         </div>
     </div>
@@ -142,12 +105,12 @@
             <div class="route-box">
         <span class="terrain-badge badge-trail">Trail 8k</span>
         <div class="route-name">Outwood OAB</div>
-        <a class="view-route-link" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--outwood-oab">View route <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3210328480860101850" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--outwood-oab">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
     </div>
             <div class="route-box">
         <span class="terrain-badge badge-trail">Trail 5k</span>
         <div class="route-name">Outwood OAB</div>
-        <a class="view-route-link" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--outwood-oab">View route <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3210328480860101850" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--outwood-oab">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
     </div>
         </div>
     </div>
@@ -165,12 +128,12 @@
             <div class="route-box">
         <span class="terrain-badge badge-trail">Trail 8k</span>
         <div class="route-name">Canal, around Elton and back via Banana path</div>
-        <a class="view-route-link" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--canal-around-elton-and-back-via-banana-path">View route <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3215053992931532690" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--canal-around-elton-and-back-via-banana-path">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
     </div>
             <div class="route-box">
         <span class="terrain-badge badge-trail">Trail 5k</span>
         <div class="route-name">RTR 5k Withins res back via banana path</div>
-        <a class="view-route-link" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--rtr-5k-withins-res-back-via-banana-path">View route <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3336768662916251852" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--rtr-5k-withins-res-back-via-banana-path">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
     </div>
         </div>
     </div>
@@ -188,12 +151,12 @@
             <div class="route-box">
         <span class="terrain-badge badge-trail">Trail 8k</span>
         <div class="route-name">Kirkless trail</div>
-        <a class="view-route-link" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--kirkless-trail">View route <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3353361995679375044" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--kirkless-trail">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
     </div>
             <div class="route-box">
         <span class="terrain-badge badge-trail">Trail 5k</span>
         <div class="route-name">Exploring Elton</div>
-        <a class="view-route-link" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--exploring-elton">View route <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3353363057471959850" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--exploring-elton">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
     </div>
         </div>
     </div>
