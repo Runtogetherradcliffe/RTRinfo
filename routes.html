@@ -193,6 +193,10 @@
         .stat { font-size: 0.85rem; color: #888; }
         .stat strong { color: #fff; font-weight: 500; }
 
+        .footer-actions {
+            margin-left: auto; display: flex; align-items: center; gap: 1rem; flex-shrink: 0;
+        }
+
         .share-btn {
             font-size: 0.82rem; color: #555;
             cursor: pointer; transition: color 0.2s; user-select: none;
@@ -203,7 +207,7 @@
         .share-btn.copied { color: #7cb87c; }
 
         .download-btn {
-            margin-left: auto; font-size: 0.82rem; color: #888;
+            font-size: 0.82rem; color: #888;
             text-decoration: none; display: flex; align-items: center; gap: 0.3rem;
             transition: color 0.2s; white-space: nowrap;
         }
@@ -281,20 +285,22 @@
             <div class="map-footer">
                 <div class="stat"><strong id="stat-distance">&mdash;</strong>&nbsp;distance</div>
                 <div class="stat"><strong id="stat-elevation">&mdash;</strong>&nbsp;elevation gain</div>
-                <button class="share-btn" id="share-btn" onclick="copyLink()">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-                        <polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
-                    </svg>
-                    Copy link
-                </button>
-                <a class="download-btn" id="download-btn" href="#" download>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-                    </svg>
-                    Download GPX
-                </a>
+                <div class="footer-actions">
+                    <a class="download-btn" id="download-btn" href="#" download>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download GPX
+                    </a>
+                    <button class="share-btn" id="share-btn" onclick="copyLink()">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                            <polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
+                        </svg>
+                        Copy link
+                    </button>
+                </div>
             </div>
         </div>
     </div>
