@@ -18,6 +18,11 @@
         a{color:#f5a623;text-decoration:none;transition:color .2s;}
         a:hover{color:#ffc966;}
 
+        .loading{text-align:center;padding:3rem 0;color:#555;font-size:.95rem;display:flex;align-items:center;justify-content:center;gap:.6rem;}
+        .spinner{width:18px;height:18px;border:2px solid #333;border-top-color:#f5a623;border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0;}
+        @keyframes spin{to{transform:rotate(360deg);}}
+        .error{text-align:center;padding:3rem 0;color:#555;font-size:.95rem;}
+
         .week-card{background:#111;border:1px solid #1a1a1a;border-left:3px solid #f5a623;border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.25rem;}
         .week-card.on-tour{border-left-color:#ffc966;background:linear-gradient(135deg,#1a1510 0%,#111 100%);}
         .week-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;}
@@ -36,7 +41,6 @@
         .badge-road{background:#0d1221;color:#6b9fd4;border:1px solid #1a2a44;}
         .badge-mixed{background:#1a1208;color:#d4a84b;border:1px solid #3a2a0a;}
         .route-name{font-size:.92rem;color:#fff;line-height:1.4;flex:1;}
-
         .route-links{display:flex;gap:.5rem;margin-top:.35rem;flex-wrap:wrap;}
         .btn-strava,.btn-map{display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;padding:.25rem .6rem;border-radius:5px;border:1px solid;transition:all .2s;white-space:nowrap;}
         .btn-strava{color:#fc4c02;border-color:#3a1a0a;background:#1a0d05;}
@@ -57,7 +61,6 @@
     </style>
 </head>
 <body>
-<!-- Generated 14 Apr 2026 from Annual_Schedule_MASTER.xlsx + Google Sheet -->
 <div class="container">
     <header>
         <a href="index.html" class="back-link">
@@ -68,98 +71,7 @@
         <p class="tagline">Every Thursday &middot; 7pm &middot; Free &middot; All welcome</p>
     </header>
 
-    <div class="week-card">
-        <div class="week-header">
-            <div>
-                <div class="week-date">Thursday 16 April</div>
-                <div class="week-time">7:00pm &ndash; 8:00pm</div>
-            </div>
-            
-        </div>
-        
-        <div class="meeting-location"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Radcliffe market</div>
-        <div class="routes-pair">
-            <div class="route-box">
-        <span class="terrain-badge badge-trail">Trail 8k</span>
-        <div class="route-name">Ainsworth, Bradley Fold, Canal</div>
-        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3243264226029184442" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--ainsworth-bradley-fold-canal">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
-    </div>
-            <div class="route-box">
-        <span class="terrain-badge badge-trail">Trail 5k</span>
-        <div class="route-name">Springwater park</div>
-        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3267571547081021606" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--springwater-park">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
-    </div>
-        </div>
-    </div>
-<div class="week-card">
-        <div class="week-header">
-            <div>
-                <div class="week-date">Thursday 23 April</div>
-                <div class="week-time">7:00pm &ndash; 8:00pm</div>
-            </div>
-            
-        </div>
-        
-        <div class="meeting-location"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Radcliffe market</div>
-        <div class="routes-pair">
-            <div class="route-box">
-        <span class="terrain-badge badge-trail">Trail 8k</span>
-        <div class="route-name">Outwood OAB</div>
-        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3210328480860101850" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--outwood-oab">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
-    </div>
-            <div class="route-box">
-        <span class="terrain-badge badge-trail">Trail 5k</span>
-        <div class="route-name">Outwood OAB</div>
-        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3210328480860101850" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--outwood-oab">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
-    </div>
-        </div>
-    </div>
-<div class="week-card">
-        <div class="week-header">
-            <div>
-                <div class="week-date">Thursday 30 April</div>
-                <div class="week-time">7:00pm &ndash; 8:00pm</div>
-            </div>
-            
-        </div>
-        
-        <div class="meeting-location"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Radcliffe market</div>
-        <div class="routes-pair">
-            <div class="route-box">
-        <span class="terrain-badge badge-trail">Trail 8k</span>
-        <div class="route-name">Canal, around Elton and back via Banana path</div>
-        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3215053992931532690" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--canal-around-elton-and-back-via-banana-path">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
-    </div>
-            <div class="route-box">
-        <span class="terrain-badge badge-trail">Trail 5k</span>
-        <div class="route-name">RTR 5k Withins res back via banana path</div>
-        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3336768662916251852" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--rtr-5k-withins-res-back-via-banana-path">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
-    </div>
-        </div>
-    </div>
-<div class="week-card on-tour">
-        <div class="week-header">
-            <div>
-                <div class="week-date">Thursday 7 May</div>
-                <div class="week-time">7:00pm &ndash; 8:00pm</div>
-            </div>
-            <span class="on-tour-badge">On tour</span>
-        </div>
-        
-        <div class="meeting-location"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Manchester Road Car Park</div>
-        <div class="routes-pair">
-            <div class="route-box">
-        <span class="terrain-badge badge-trail">Trail 8k</span>
-        <div class="route-name">Kirkless trail</div>
-        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3353361995679375044" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-8k--kirkless-trail">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
-    </div>
-            <div class="route-box">
-        <span class="terrain-badge badge-trail">Trail 5k</span>
-        <div class="route-name">Exploring Elton</div>
-        <div class="route-links"><a class="btn-strava" href="https://www.strava.com/routes/3353363057471959850" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Strava <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a class="btn-map" href="https://runtogetherradcliffe.github.io/RTRinfo/routes.html#trail-5k--exploring-elton">View map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
-    </div>
-        </div>
-    </div>
+    <div id="schedule"><div class="loading"><div class="spinner"></div> Loading schedule&hellip;</div></div>
 
     <div class="book-tip">
         &#128155; Book your place via the
@@ -172,5 +84,145 @@
         <a href="https://runtogether.co.uk" target="_blank" rel="noopener">England Athletics Run Together</a> programme</p>
     </footer>
 </div>
+<script>
+const SHEET_ID =  + SHEET_ID + ;
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+// Timeout — fall back gracefully if gviz doesn't respond
+const timeout = setTimeout(() => {
+    document.getElementById('schedule').innerHTML =
+        '<p class="error">Couldn't load the schedule. <a href="https://runtogetherradcliffe.github.io/weeklyschedule/">Try the full schedule page</a>.</p>';
+}, 8000);
+
+// JSONP — no CORS, no fetch, just a script tag
+window.__scheduleData = function(data) {
+    clearTimeout(timeout);
+    try { render(data); } catch(e) { console.error(e); }
+};
+
+(function() {
+    const s = document.createElement('script');
+    s.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
+            '/gviz/tq?tqx=out:json;responseHandler:__scheduleData&sheet=Schedule';
+    s.onerror = function() {
+        clearTimeout(timeout);
+        document.getElementById('schedule').innerHTML =
+            '<p class="error">Couldn't load the schedule.</p>';
+    };
+    document.head.appendChild(s);
+})();
+
+function render(data) {
+    const cols = data.table.cols;
+    const ci = {};
+    cols.forEach((c, i) => { if (c.label) ci[c.label] = i; });
+
+    function g(row, label) {
+        const i = ci[label];
+        return (i !== undefined && row.c[i]) ? row.c[i].v : null;
+    }
+
+    function parseDate(s) {
+        const m = (s||'').match(/Date\((\d+),(\d+),(\d+)/);
+        return m ? new Date(+m[1], +m[2], +m[3]) : null;
+    }
+
+    const today = new Date(); today.setHours(0,0,0,0);
+
+    const weeks = (data.table.rows || [])
+        .map(row => {
+            const d = parseDate(g(row, 'Date (Thu)'));
+            if (!d || d < today) return null;
+            const r1 = g(row, 'Route 1 - Name');
+            if (!r1 || r1 === 'No run') return null;
+            return {
+                date:      d,
+                r1Name:    r1,
+                r1Terrain: g(row, 'Route 1 - Terrain (Road/Trail/Mixed)') || '',
+                r1Dist:    g(row, 'Route 1 - Distance (km)'),
+                r1Strava:  g(row, 'Route 1 - Route Link (Source URL)') || '',
+                r1Rtr:     g(row, '8k RTR page') || '',
+                r2Name:    g(row, 'Route 2 - Name') || '',
+                r2Terrain: g(row, 'Route 2 - Terrain (Road/Trail/Mixed)') || '',
+                r2Dist:    g(row, 'Route 2 - Distance (km)'),
+                r2Strava:  g(row, 'Route 2 - Route Link (Source URL)') || '',
+                r2Rtr:     g(row, '5k RTR page') || '',
+                notes:     g(row, 'Notes') || '',
+            };
+        })
+        .filter(Boolean)
+        .slice(0, 4);
+
+    if (!weeks.length) {
+        document.getElementById('schedule').innerHTML = '<p class="error">No upcoming runs scheduled yet.</p>';
+        return;
+    }
+    document.getElementById('schedule').innerHTML = weeks.map(renderWeek).join('');
+}
+
+function parseNotes(notes) {
+    const parts = notes.split('|').map(p => p.trim()).filter(Boolean);
+    let special = '', meeting = 'Radcliffe Market', onTour = false;
+    parts.forEach(p => {
+        if (p.toLowerCase().startsWith('meeting:')) { const m = p.slice(8).trim(); meeting = m[0].toUpperCase() + m.slice(1); }
+        else if (p.toLowerCase() === 'rtr on tour') onTour = true;
+        else if (p) special = p;
+    });
+    return { special, meeting, onTour };
+}
+
+function terrainLabel(t, d) {
+    const tl = (t||'').toLowerCase();
+    const dist = d ? d + 'k' : '';
+    if (tl==='trail') return 'Trail ' + dist;
+    if (tl==='road')  return 'Road '  + dist;
+    return (t + ' ' + dist).trim();
+}
+
+function badgeClass(t) {
+    const tl = (t||'').toLowerCase();
+    return tl==='trail' ? 'badge-trail' : tl==='road' ? 'badge-road' : 'badge-mixed';
+}
+
+function fmtDate(d) { return 'Thursday ' + d.getDate() + ' ' + MONTHS[d.getMonth()]; }
+
+const PIN  = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+const STRAVA_ICON = '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>';
+const EXT  = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+const ARR  = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>';
+
+function routeBox(name, terrain, dist, stravaUrl, rtrUrl) {
+    if (!name) return '<div class="route-box faded"><div class="route-name">&mdash;</div></div>';
+    const isInternal = rtrUrl && rtrUrl.includes('routes.html');
+    const mapBtn  = rtrUrl  ? `<a class="btn-map"    href="${rtrUrl}"${isInternal ? '' : ' target="_blank" rel="noopener"'}>View map ${ARR}</a>` : '';
+    const strBtn  = stravaUrl && stravaUrl.startsWith('http')
+        ? `<a class="btn-strava" href="${stravaUrl}" target="_blank" rel="noopener">${STRAVA_ICON} Strava ${EXT}</a>` : '';
+    const links = (strBtn || mapBtn) ? `<div class="route-links">${strBtn}${mapBtn}</div>` : '';
+    return `<div class="route-box">
+        <span class="terrain-badge ${badgeClass(terrain)}">${terrainLabel(terrain, dist)}</span>
+        <div class="route-name">${name}</div>
+        ${links}
+    </div>`;
+}
+
+function renderWeek(w) {
+    const n = parseNotes(w.notes);
+    return `<div class="week-card${n.onTour ? ' on-tour' : ''}">
+        <div class="week-header">
+            <div>
+                <div class="week-date">${fmtDate(w.date)}</div>
+                <div class="week-time">7:00pm &ndash; 8:00pm</div>
+            </div>
+            ${n.onTour ? '<span class="on-tour-badge">On tour</span>' : ''}
+        </div>
+        ${n.special ? `<div class="special-note">${n.special}</div>` : ''}
+        <div class="meeting-location">${PIN} ${n.meeting}</div>
+        <div class="routes-pair">
+            ${routeBox(w.r1Name, w.r1Terrain, w.r1Dist, w.r1Strava, w.r1Rtr)}
+            ${routeBox(w.r2Name, w.r2Terrain, w.r2Dist, w.r2Strava, w.r2Rtr)}
+        </div>
+    </div>`;
+}
+</script>
 </body>
 </html>
