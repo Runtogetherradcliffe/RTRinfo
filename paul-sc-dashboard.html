@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paul Cox — S&C Dashboard</title>
+<style>
+  :root {
+    --blue: #1a5276; --teal: #148f77; --orange: #e65100; --green: #2e7d32;
+    --purple: #6c3483; --red: #c0392b; --gold: #b7950b;
+    --light: #f4f6f7; --dark: #1c2833; --text: #2c3e50;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--light); color: var(--text); padding: 24px; }
+
+  header { background: linear-gradient(135deg, #e65100 0%, #f57c00 100%); color: white; padding: 28px 32px; border-radius: 14px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+  header h1 { font-size: 1.5rem; font-weight: 700; }
+  header p { font-size: 0.85rem; opacity: 0.85; margin-top: 5px; }
+  .export-btn { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.88rem; }
+
+  .phase-strip { display: flex; border-radius: 10px; overflow: hidden; margin-bottom: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
+  .phase-strip div { padding: 10px 8px; text-align: center; flex: 1; }
+  .phase-strip small { display: block; font-weight: 400; font-size: 0.62rem; opacity: 0.8; margin-top: 2px; text-transform: none; letter-spacing: 0; }
+  .ps-rest   { background:#e8f5e9; color:#2e7d32; }
+  .ps-found  { background:#fff3e0; color:#e65100; }
+  .ps-build  { background:#fbe9e7; color:#bf360c; }
+  .ps-maint  { background:#e3f2fd; color:#1565c0; flex: 4; }
+  .ps-taper  { background:#f3e5f5; color:#6a1b9a; }
+  .ps-now    { outline: 3px solid var(--orange); outline-offset: -3px; }
+
+  .card { background: white; border-radius: 12px; padding: 22px; margin-bottom: 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .card h2 { font-size: 0.95rem; font-weight: 700; color: #1c2833; margin-bottom: 4px; }
+  .card .sub { font-size: 0.75rem; color: #999; margin-bottom: 16px; }
+
+  /* Next session banner */
+  .next-session { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-radius: 12px; padding: 20px 26px; margin-bottom: 18px; display: flex; align-items: center; gap: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .ns-icon { font-size: 2.5rem; }
+  .ns-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #e65100; font-weight: 700; }
+  .ns-date { font-size: 1.6rem; font-weight: 800; color: #1c2833; line-height: 1.1; }
+  .ns-detail { font-size: 0.82rem; color: #555; margin-top: 3px; }
+  .ns-badge { margin-left: auto; background: #e65100; color: white; border-radius: 8px; padding: 8px 16px; font-size: 0.8rem; font-weight: 700; text-align: center; }
+  .ns-badge small { display: block; font-weight: 400; opacity: 0.85; font-size: 0.68rem; }
+
+  /* Schedule table */
+  .sched-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .sched-table th { text-align: left; padding: 8px 10px; background: #f4f6f7; font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.5px; color: #aaa; border-bottom: 2px solid #e0e0e0; }
+  .sched-table td { padding: 9px 10px; border-bottom: 1px solid #f5f5f5; vertical-align: top; }
+  .sched-table tr:last-child td { border-bottom: none; }
+  .sched-table tr.race-row td { background: #fef3e2; font-weight: 600; }
+  .sched-table tr.camp-row td { background: #fde8ff; }
+  .sched-table tr.skip-row td { color: #bbb; font-style: italic; }
+  .sched-table tr.light-row td { background: #fffde7; }
+  .sched-table tr.next-row td { background: #e8f5e9; font-weight: 600; }
+
+  .phase-tag { display: inline-block; font-size: 0.62rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; margin-left: 5px; vertical-align: middle; }
+  .pt-found { background: #fff3e0; color: #e65100; }
+  .pt-build { background: #fbe9e7; color: #bf360c; }
+  .pt-maint { background: #e3f2fd; color: #1565c0; }
+  .pt-taper { background: #f3e5f5; color: #6a1b9a; }
+
+  /* Exercise cards grid */
+  .ex-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .ex-card { border-radius: 10px; padding: 16px; border-top: 3px solid; }
+  .ex-card h3 { font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; }
+  .ex-card ul { list-style: none; }
+  .ex-card ul li { font-size: 0.75rem; color: #555; padding: 3px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .ex-card ul li:last-child { border-bottom: none; }
+  .ex-card .prog { font-size: 0.67rem; color: #aaa; margin-top: 8px; font-style: italic; }
+  .ec-glute { background: #fff3e0; border-top-color: #e65100; }
+  .ec-hip   { background: #e8f5e9; border-top-color: #2e7d32; }
+  .ec-core  { background: #eaf2ff; border-top-color: #1a5276; }
+  .ec-calf  { background: #fce4ec; border-top-color: #c62828; }
+
+  /* Phase progression blocks */
+  .prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .prog-card { border-radius: 10px; padding: 16px; border-left: 4px solid; }
+  .prog-card h3 { font-size: 0.82rem; font-weight: 700; margin-bottom: 8px; }
+  .prog-card .prog-dates { font-size: 0.68rem; color: #aaa; margin-bottom: 10px; }
+  .prog-card .prog-item { font-size: 0.75rem; color: #444; padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; justify-content: space-between; gap: 8px; }
+  .prog-card .prog-item:last-child { border-bottom: none; }
+  .prog-card .prog-item em { font-style: normal; color: #888; font-size: 0.7rem; }
+  .pc-found { background: #fff8f0; border-left-color: #e65100; }
+  .pc-build { background: #fff5f5; border-left-color: #c62828; }
+  .pc-maint { background: #f0f4ff; border-left-color: #1565c0; }
+
+  /* Rules */
+  .rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .rule { background: white; border-radius: 10px; padding: 14px 16px; border-left: 4px solid #e65100; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .rule-title { font-size: 0.75rem; font-weight: 700; color: #1c2833; margin-bottom: 5px; }
+  .rule-text { font-size: 0.73rem; color: #666; line-height: 1.5; }
+
+  /* Monthly calendar */
+  .cal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .month { border-radius: 10px; overflow: hidden; }
+  .month-header { background: #2c3e50; color: white; padding: 10px 14px; font-size: 0.82rem; font-weight: 700; }
+  .week-row { display: grid; grid-template-columns: repeat(7, 1fr); }
+  .day-head { font-size: 0.6rem; text-transform: uppercase; color: #aaa; text-align: center; padding: 6px 2px; background: #f9f9f9; font-weight: 700; }
+  .day { font-size: 0.72rem; text-align: center; padding: 6px 2px; border-bottom: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0; min-height: 38px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 2px; }
+  .day.empty { background: #fafafa; }
+  .day.today { background: #fffde7; font-weight: 700; }
+  .day.sc-day { background: #fff3e0; }
+  .day.sc-light { background: #fffde7; }
+  .day.race-day { background: #fde8e8; }
+  .day.camp-day { background: #f3e5f5; }
+  .day.no-sc { background: #f0f9f0; }
+  .day.block-start { background: #e3f2fd; }
+  .day-num { font-weight: 700; font-size: 0.72rem; color: #333; }
+  .day-tag { font-size: 0.55rem; font-weight: 700; padding: 1px 3px; border-radius: 3px; line-height: 1.3; }
+  .dt-sc { background: #e65100; color: white; }
+  .dt-light { background: #f57c00; color: white; }
+  .dt-race { background: #c0392b; color: white; }
+  .dt-camp { background: #6c3483; color: white; }
+  .dt-block { background: #1565c0; color: white; }
+  .dt-skip { color: #bbb; font-size: 0.55rem; }
+
+  .cal-legend { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .cl { display: flex; align-items: center; gap: 5px; font-size: 0.71rem; color: #666; }
+  .cs { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  .footer { text-align: center; font-size: 0.71rem; color: #ccc; margin-top: 22px; padding-top: 16px; border-top: 1px solid #ebebeb; }
+
+  @media print {
+    body { background: white; padding: 8px; }
+    .export-btn { display: none; }
+    .card { box-shadow: none; border: 1px solid #e8e8e8; page-break-inside: avoid; }
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>💪 Paul Cox — S&amp;C Dashboard</h1>
+    <p>Strength &amp; Conditioning schedule: May 2026 → Abingdon Marathon (18 Oct 2026)</p>
+  </div>
+  <button class="export-btn" onclick="window.print()">⬇ Export PDF</button>
+</header>
+
+<!-- Phase strip -->
+<div class="phase-strip">
+  <div class="ps-rest ps-now">🛌 Recovery<small>Apr 20–May 3</small></div>
+  <div class="ps-found">🌱 Foundation<small>May 4–17</small></div>
+  <div class="ps-build">📈 Building<small>May 18–Jun 14</small></div>
+  <div class="ps-maint">🏃 Marathon Maintain<small>Jun 15 – Oct 18 (reduce peak wks, stop taper)</small></div>
+  <div class="ps-taper">🎯 Abingdon<small>18 Oct</small></div>
+</div>
+
+<!-- Next session -->
+<div class="next-session">
+  <div class="ns-icon">💪</div>
+  <div>
+    <div class="ns-label">Next S&amp;C session</div>
+    <div class="ns-date">Monday 4 May 2026</div>
+    <div class="ns-detail">Foundation Phase — Session 1 of 2 that week · Bodyweight only · ~20 min · 13 days away</div>
+  </div>
+  <div class="ns-badge">
+    Currently in<br>
+    <small>🛌 Recovery (no S&amp;C)</small>
+  </div>
+</div>
+
+<!-- Exercise session reference -->
+<div class="card">
+  <h2>Session Structure — What to Do Each Session</h2>
+  <div class="sub">Work through in order (1→4). All sessions follow this structure — the progression changes by phase, not the exercises. ~20–30 min total.</div>
+  <div class="ex-grid">
+    <div class="ex-card ec-glute">
+      <h3>① Glutes — Do First</h3>
+      <ul>
+        <li>Hip thrusts</li>
+        <li>Glute bridges</li>
+        <li>Single-leg deadlifts</li>
+      </ul>
+      <p class="prog">Primary weakness linked to Nov injury. Always first.</p>
+    </div>
+    <div class="ex-card ec-hip">
+      <h3>② Hip Stability</h3>
+      <ul>
+        <li>Clamshells</li>
+        <li>Lateral band walks</li>
+        <li>Single-leg stance</li>
+      </ul>
+      <p class="prog">Single-leg work. Band optional.</p>
+    </div>
+    <div class="ex-card ec-core">
+      <h3>③ Core</h3>
+      <ul>
+        <li>Dead bugs (legs-only now)</li>
+        <li>Bird dogs</li>
+        <li>Plank variations</li>
+      </ul>
+      <p class="prog">Core is a weakness — build slowly. Dead bugs: legs-only until consistently controlled, then add contralateral arm.</p>
+    </div>
+    <div class="ex-card ec-calf">
+      <h3>④ Calf / Achilles</h3>
+      <ul>
+        <li>Single-leg calf raises</li>
+      </ul>
+      <p class="prog">Essential for carbon shoe use &amp; marathon durability at Abingdon. Do every session.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Phase progressions -->
+<div class="card">
+  <h2>Progressions by Phase</h2>
+  <div class="sub">The exercises stay the same — sets, reps and weight change as fitness adapts.</div>
+  <div class="prog-grid">
+    <div class="prog-card pc-found">
+      <h3>🌱 Foundation Phase</h3>
+      <div class="prog-dates">May 4–17 · 4 sessions · Bodyweight only</div>
+      <div class="prog-item">Hip thrusts <em>3×12 bodyweight</em></div>
+      <div class="prog-item">Glute bridges <em>3×15 bodyweight</em></div>
+      <div class="prog-item">Single-leg deadlifts <em>3×8/leg bodyweight</em></div>
+      <div class="prog-item">Clamshells <em>3×15/side</em></div>
+      <div class="prog-item">Single-leg stance <em>3×30s/leg</em></div>
+      <div class="prog-item">Dead bugs (legs-only) <em>3×8/side</em></div>
+      <div class="prog-item">Bird dogs <em>3×10/side</em></div>
+      <div class="prog-item">Plank <em>3×15–20s — build form</em></div>
+      <div class="prog-item">Single-leg calf raises <em>3×12/leg</em></div>
+    </div>
+    <div class="prog-card pc-build">
+      <h3>📈 Building Phase</h3>
+      <div class="prog-dates">May 18–Jun 14 · ~5 sessions · Add light dumbbells</div>
+      <div class="prog-item">Hip thrusts <em>3×12 light dumbbell</em></div>
+      <div class="prog-item">Glute bridges <em>3×12 weighted</em></div>
+      <div class="prog-item">Single-leg deadlifts <em>3×10/leg + dumbbell</em></div>
+      <div class="prog-item">Clamshells <em>3×20/side</em></div>
+      <div class="prog-item">Single-leg stance <em>3×45s + small perturbation</em></div>
+      <div class="prog-item">Dead bugs* <em>3×10/side — assess arm version</em></div>
+      <div class="prog-item">Bird dogs <em>3×12/side</em></div>
+      <div class="prog-item">Plank <em>3×25–35s</em></div>
+      <div class="prog-item">Single-leg calf raises <em>3×15/leg</em></div>
+    </div>
+    <div class="prog-card pc-maint">
+      <h3>🏃 Marathon Maintain</h3>
+      <div class="prog-dates">Jun 15 – Oct 12 · Tue + Fri → 1×/wk peak → stop taper</div>
+      <div class="prog-item">Hip thrusts <em>3×10 heavier dumbbell</em></div>
+      <div class="prog-item">Glute bridges <em>3×10 weighted</em></div>
+      <div class="prog-item">Single-leg deadlifts <em>3×10/leg weighted</em></div>
+      <div class="prog-item">Clamshells <em>3×20/side</em></div>
+      <div class="prog-item">Single-leg stance <em>3×60s eyes closed</em></div>
+      <div class="prog-item">Dead bugs <em>3×10/side — progress if consistent</em></div>
+      <div class="prog-item">Bird dogs <em>3×15/side</em></div>
+      <div class="prog-item">Plank <em>3×40–45s</em></div>
+      <div class="prog-item">Single-leg calf raises <em>3×20/leg</em></div>
+    </div>
+  </div>
+  <p style="font-size:0.72rem;color:#888;margin-top:12px">* Dead bug progression: stay on legs-only version until Paul has been consistently doing it with good form (back flat, no arching). Check before advancing to contralateral arm version.</p>
+</div>
+
+<!-- Scheduling rules -->
+<div class="card">
+  <h2>Scheduling Rules</h2>
+  <div class="sub">These protect against interfering with running adaptations.</div>
+  <div class="rules">
+    <div class="rule">
+      <div class="rule-title">🚫 Never same day as a hard run</div>
+      <div class="rule-text">Not before or after threshold, intervals, or the long Q run. In marathon block: avoid Sunday (Q1 long run) and Wednesday (Q2 quality session).</div>
+    </div>
+    <div class="rule">
+      <div class="rule-title">⏰ 6-hour gap minimum</div>
+      <div class="rule-text">Where S&amp;C and an easy run are on the same day, separate them by at least 6 hours. Prefer easy-run days or full rest days for S&amp;C.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-title">📉 Reduce at peak, stop at taper</div>
+      <div class="rule-text">Drop to 1×/week during peak marathon weeks (DW5–DW3, approx Sep 1–21). Stop S&amp;C completely from Kielder HM weekend (Oct 4) — final 2-week taper.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Full schedule table -->
+<div class="card">
+  <h2>Full Schedule — May 4 → October 2026</h2>
+  <div class="sub">Every planned S&amp;C date. Adjust around running as needed — the rules above take priority. Marathon block days (Jun 15+) follow Tue + Fri pattern.</div>
+  <table class="sched-table">
+    <thead><tr><th>Date</th><th>Day</th><th>Phase</th><th>Notes</th></tr></thead>
+    <tbody>
+      <!-- Foundation Phase -->
+      <tr class="next-row"><td>Mon 4 May</td><td>Monday</td><td><span class="phase-tag pt-found">Foundation</span></td><td>Session 1 — bodyweight only, establish form. Go easy on first session back.</td></tr>
+      <tr><td>Thu 7 May</td><td>Thursday</td><td><span class="phase-tag pt-found">Foundation</span></td><td>Session 2 — note how glutes and core feel. Adjust if sore.</td></tr>
+      <tr><td>Mon 11 May</td><td>Monday</td><td><span class="phase-tag pt-found">Foundation</span></td><td>Session 3 — check plank form before extending hold duration.</td></tr>
+      <tr><td>Thu 14 May</td><td>Thursday</td><td><span class="phase-tag pt-found">Foundation</span></td><td>Session 4 — last Foundation session. Assess readiness to introduce light weights.</td></tr>
+      <!-- Building Phase -->
+      <tr><td>Mon 18 May</td><td>Monday</td><td><span class="phase-tag pt-build">Building</span></td><td>Session 5 — introduce light dumbbells for hip thrusts + glute bridges. Test single-leg deadlift with dumbbell.</td></tr>
+      <tr><td>Thu 21 May</td><td>Thursday</td><td><span class="phase-tag pt-build">Building</span></td><td>Session 6 — assess dead bug: if legs-only is controlled, test contralateral arm version briefly.</td></tr>
+      <tr class="light-row"><td>Mon 26 May</td><td>Monday</td><td><span class="phase-tag pt-build">Building (light)</span></td><td>⚠️ Widnes taper week — reduce volume ~30–40%. Fewer sets, same exercises. Last session before race.</td></tr>
+      <tr class="skip-row"><td>Thu 28 May</td><td>Thursday</td><td>—</td><td>Skip — 3 days before Widnes HM. Rest and protect legs.</td></tr>
+      <tr class="race-row"><td>Sun 31 May</td><td>Sunday</td><td>—</td><td>🏃 WIDNES HALF MARATHON — benchmark race. No S&amp;C.</td></tr>
+      <tr class="skip-row"><td>Mon 1 Jun – Wed 3 Jun</td><td>—</td><td>—</td><td>Skip — post-Widnes recovery. Easy running only for 3–4 days.</td></tr>
+      <tr><td>Fri 5 Jun</td><td>Friday</td><td><span class="phase-tag pt-build">Building</span></td><td>Session 7 — single session this week. Resume gently post-Widnes. Assess how legs feel after race.</td></tr>
+      <tr><td>Tue 9 Jun</td><td>Tuesday</td><td><span class="phase-tag pt-build">Building</span></td><td>Session 8 — resume Mon/Thu pattern shifted to Tue/Fri ahead of marathon block.</td></tr>
+      <tr><td>Fri 13 Jun</td><td>Friday</td><td><span class="phase-tag pt-build">Building</span></td><td>Session 9 — last pre-block session. Consolidate form before mileage ramps Jun 15.</td></tr>
+      <!-- Marathon Block -->
+      <tr class="block-start-row" style="background:#e3f2fd"><td>Mon 15 Jun</td><td>Monday</td><td><span class="phase-tag pt-maint">Marathon Block</span></td><td>📈 ABINGDON BLOCK STARTS — S&amp;C pattern shifts to Tue + Fri throughout the block.</td></tr>
+      <tr><td>Tue 16 Jun</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW18: first marathon block S&amp;C. Q2 is Wed — Tue avoids conflict. Q1 was Sun 14.</td></tr>
+      <tr><td>Fri 19 Jun</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW18: second session. Q1 is Sun 21. Fri gives a day buffer before the long run.</td></tr>
+      <tr><td>Tue 23 Jun</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW17</td></tr>
+      <tr><td>Fri 26 Jun</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW17</td></tr>
+      <tr><td>Tue 30 Jun</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW16</td></tr>
+      <tr><td>Fri 3 Jul</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW16</td></tr>
+      <tr><td>Tue 7 Jul</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW15</td></tr>
+      <tr><td>Fri 10 Jul</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW15</td></tr>
+      <tr><td>Tue 14 Jul</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW14</td></tr>
+      <tr><td>Fri 17 Jul</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW14</td></tr>
+      <tr><td>Tue 21 Jul</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW13</td></tr>
+      <tr><td>Fri 24 Jul</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW13</td></tr>
+      <tr><td>Tue 28 Jul</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW12</td></tr>
+      <tr><td>Fri 31 Jul</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW12</td></tr>
+      <tr><td>Tue 4 Aug</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW11</td></tr>
+      <tr><td>Fri 7 Aug</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW11</td></tr>
+      <tr><td>Tue 11 Aug</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW10</td></tr>
+      <tr><td>Fri 14 Aug</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW10</td></tr>
+      <tr><td>Tue 18 Aug</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW9</td></tr>
+      <tr><td>Fri 21 Aug</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW9</td></tr>
+      <tr><td>Tue 25 Aug</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW8</td></tr>
+      <tr><td>Fri 28 Aug</td><td>Friday</td><td><span class="phase-tag pt-maint">Maintain</span></td><td>DW8</td></tr>
+      <!-- Peak weeks — reduce to 1x -->
+      <tr class="light-row"><td>Tue 1 Sep</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain (1×)</span></td><td>⚠️ DW7 — reduce to 1×/week. Volume getting heavy. Drop Friday session. Keep Tuesday.</td></tr>
+      <tr class="skip-row"><td>Fri 4 Sep</td><td>Friday</td><td>—</td><td>Skip — DW7 peak week. Protect running quality.</td></tr>
+      <tr class="light-row"><td>Tue 8 Sep</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain (1×)</span></td><td>DW6 — 1×/week continues.</td></tr>
+      <tr class="skip-row"><td>Fri 11 Sep</td><td>Friday</td><td>—</td><td>Skip — DW6.</td></tr>
+      <tr class="light-row"><td>Tue 15 Sep</td><td>Tuesday</td><td><span class="phase-tag pt-maint">Maintain (1×)</span></td><td>DW5 — last session before Palma camp. Keep it light — travel weekend ahead.</td></tr>
+      <tr class="skip-row"><td>Fri 18 Sep</td><td>Friday</td><td>—</td><td>Skip — fly to Palma Saturday.</td></tr>
+      <!-- Palma camp -->
+      <tr class="camp-row"><td>Sat 19 – Mon 28 Sep</td><td>—</td><td>—</td><td>✈️ PALMA TRAINING CAMP — no S&amp;C during camp. Focus entirely on Q sessions: Q1 Sun 20, Q2 Wed 23, peak Q1 22mi Sun 27. Fly back Mon 28.</td></tr>
+      <!-- Post-Palma taper -->
+      <tr class="light-row"><td>Tue 29 Sep</td><td>Tuesday</td><td><span class="phase-tag pt-taper">Taper (1×)</span></td><td>DW3 — resume with a single light session post-Palma. Reduce sets/duration. No new stimulus.</td></tr>
+      <tr class="skip-row"><td>Fri 2 Oct</td><td>Friday</td><td>—</td><td>Skip — Kielder HM weekend.</td></tr>
+      <tr class="race-row"><td>Sun 4 Oct</td><td>Sunday</td><td>—</td><td>🏔 KIELDER TRAIL HM — treat as controlled long run, not a race. Final tune-up 2 weeks out.</td></tr>
+      <tr class="light-row"><td>Tue 6 Oct</td><td>Tuesday</td><td><span class="phase-tag pt-taper">Taper (1×)</span></td><td>DW2 — single very light session. Short holds, fewer sets. Activation only.</td></tr>
+      <tr class="skip-row"><td>Fri 9 Oct onwards</td><td>—</td><td>—</td><td>🛑 STOP S&amp;C — final taper for Abingdon. No S&amp;C from this point. Legs + body for race day.</td></tr>
+      <tr class="race-row"><td>Sat 18 Oct</td><td>Saturday</td><td>—</td><td>🏁 ABINGDON MARATHON — Sub-4:00 target. 10-10-10 strategy. Race day!</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Calendar: May -->
+<div class="card">
+  <h2>Calendar View — May &amp; June 2026</h2>
+  <div class="sub">The critical pre-block period. S&amp;C sessions are the most important to get right here — adaptations need ~6 weeks to embed before marathon mileage ramps.</div>
+  <div class="cal-legend">
+    <div class="cl"><div class="cs" style="background:#fff3e0;border:1px solid #e65100"></div>S&amp;C session</div>
+    <div class="cl"><div class="cs" style="background:#fffde7;border:1px solid #f57c00"></div>Light / taper S&amp;C</div>
+    <div class="cl"><div class="cs" style="background:#fde8e8;border:1px solid #c0392b"></div>Race day</div>
+    <div class="cl"><div class="cs" style="background:#e3f2fd;border:1px solid #1565c0"></div>Block starts / key date</div>
+    <div class="cl"><div class="cs" style="background:#fffde7;border:1px solid #aaa"></div>Today (21 Apr)</div>
+    <div class="cl"><div class="cs" style="background:#f0f9f0;border:1px solid #aaa"></div>Recovery (no S&amp;C)</div>
+  </div>
+  <div class="cal-grid">
+
+    <!-- MAY 2026 -->
+    <div class="month">
+      <div class="month-header">May 2026</div>
+      <div class="week-row">
+        <div class="day-head">Mon</div><div class="day-head">Tue</div><div class="day-head">Wed</div>
+        <div class="day-head">Thu</div><div class="day-head">Fri</div><div class="day-head">Sat</div><div class="day-head">Sun</div>
+      </div>
+      <!-- Week 1: May starts on Friday -->
+      <div class="week-row">
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day"><div class="day-num">1</div></div>
+        <div class="day"><div class="day-num">2</div></div>
+        <div class="day"><div class="day-num">3</div></div>
+      </div>
+      <!-- Week 2: May 4-10 -->
+      <div class="week-row">
+        <div class="day sc-day"><div class="day-num">4</div><div class="day-tag dt-sc">S&amp;C</div><div class="day-tag" style="background:#e65100;color:white;font-size:0.5rem">Found.</div></div>
+        <div class="day"><div class="day-num">5</div></div>
+        <div class="day"><div class="day-num">6</div></div>
+        <div class="day sc-day"><div class="day-num">7</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">8</div></div>
+        <div class="day"><div class="day-num">9</div></div>
+        <div class="day"><div class="day-num">10</div></div>
+      </div>
+      <!-- Week 3: May 11-17 -->
+      <div class="week-row">
+        <div class="day sc-day"><div class="day-num">11</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">12</div></div>
+        <div class="day"><div class="day-num">13</div></div>
+        <div class="day sc-day"><div class="day-num">14</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">15</div></div>
+        <div class="day"><div class="day-num">16</div></div>
+        <div class="day"><div class="day-num">17</div></div>
+      </div>
+      <!-- Week 4: May 18-24 -->
+      <div class="week-row">
+        <div class="day sc-day"><div class="day-num">18</div><div class="day-tag dt-sc">S&amp;C</div><div class="day-tag" style="background:#bf360c;color:white;font-size:0.5rem">Build.</div></div>
+        <div class="day"><div class="day-num">19</div></div>
+        <div class="day"><div class="day-num">20</div></div>
+        <div class="day sc-day"><div class="day-num">21</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">22</div></div>
+        <div class="day"><div class="day-num">23</div></div>
+        <div class="day"><div class="day-num">24</div></div>
+      </div>
+      <!-- Week 5: May 25-31 (taper week) -->
+      <div class="week-row">
+        <div class="day sc-light"><div class="day-num">25</div></div>
+        <div class="day sc-light"><div class="day-num">26</div><div class="day-tag dt-light">Light</div></div>
+        <div class="day"><div class="day-num">27</div></div>
+        <div class="day"><div class="day-num">28</div><div class="day-tag dt-skip">skip</div></div>
+        <div class="day"><div class="day-num">29</div></div>
+        <div class="day"><div class="day-num">30</div></div>
+        <div class="day race-day"><div class="day-num">31</div><div class="day-tag dt-race">RACE</div></div>
+      </div>
+    </div>
+
+    <!-- JUNE 2026 -->
+    <div class="month">
+      <div class="month-header">June 2026</div>
+      <div class="week-row">
+        <div class="day-head">Mon</div><div class="day-head">Tue</div><div class="day-head">Wed</div>
+        <div class="day-head">Thu</div><div class="day-head">Fri</div><div class="day-head">Sat</div><div class="day-head">Sun</div>
+      </div>
+      <!-- Week 1: Jun 1-7 (recovery from Widnes) -->
+      <div class="week-row">
+        <div class="day no-sc"><div class="day-num">1</div><div class="day-tag dt-skip">recover</div></div>
+        <div class="day no-sc"><div class="day-num">2</div></div>
+        <div class="day no-sc"><div class="day-num">3</div></div>
+        <div class="day no-sc"><div class="day-num">4</div></div>
+        <div class="day sc-day"><div class="day-num">5</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">6</div></div>
+        <div class="day"><div class="day-num">7</div></div>
+      </div>
+      <!-- Week 2: Jun 8-14 -->
+      <div class="week-row">
+        <div class="day"><div class="day-num">8</div></div>
+        <div class="day sc-day"><div class="day-num">9</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">10</div></div>
+        <div class="day"><div class="day-num">11</div></div>
+        <div class="day sc-day"><div class="day-num">12</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">13</div></div>
+        <div class="day"><div class="day-num">14</div></div>
+      </div>
+      <!-- Week 3: Jun 15-21 (block starts) -->
+      <div class="week-row">
+        <div class="day block-start"><div class="day-num">15</div><div class="day-tag dt-block">Block!</div></div>
+        <div class="day sc-day"><div class="day-num">16</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">17</div><div class="day-tag" style="font-size:0.5rem;color:#888">Q2</div></div>
+        <div class="day"><div class="day-num">18</div></div>
+        <div class="day sc-day"><div class="day-num">19</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">20</div></div>
+        <div class="day"><div class="day-num">21</div><div class="day-tag" style="font-size:0.5rem;color:#888">Q1</div></div>
+      </div>
+      <!-- Week 4: Jun 22-28 -->
+      <div class="week-row">
+        <div class="day"><div class="day-num">22</div></div>
+        <div class="day sc-day"><div class="day-num">23</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">24</div><div class="day-tag" style="font-size:0.5rem;color:#888">Q2</div></div>
+        <div class="day"><div class="day-num">25</div></div>
+        <div class="day sc-day"><div class="day-num">26</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day"><div class="day-num">27</div></div>
+        <div class="day"><div class="day-num">28</div><div class="day-tag" style="font-size:0.5rem;color:#888">Q1</div></div>
+      </div>
+      <!-- Jun 29-30 -->
+      <div class="week-row">
+        <div class="day"><div class="day-num">29</div></div>
+        <div class="day sc-day"><div class="day-num">30</div><div class="day-tag dt-sc">S&amp;C</div></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">Updated 21 April 2026 · 🛌 Currently in Post-Peak Divide recovery (Apr 20–May 3) · Next S&amp;C: Monday 4 May · Abingdon Marathon 18 October 2026</div>
+
+</body>
+</html>
