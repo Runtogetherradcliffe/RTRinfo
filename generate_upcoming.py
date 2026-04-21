@@ -306,13 +306,16 @@ def main():
     # Commit and push
     os.chdir(SITE_DIR)
 
-    # Clear any stale git lock files left by previous sessions
+    # Clear any stale git lock files left by previous sessions.
+    # os.remove() fails on macOS-mounted volumes (Operation not permitted),
+    # so we rename instead — git only cares that the exact lock filename is gone.
     for lock in [".git/HEAD.lock", ".git/index.lock"]:
-        try:
-            os.remove(lock)
-            print(f"Cleared stale lock: {lock}")
-        except FileNotFoundError:
-            pass
+        if os.path.exists(lock):
+            try:
+                os.rename(lock, lock + ".bak")
+                print(f"Cleared stale lock: {lock}")
+            except OSError as e:
+                print(f"Warning: could not clear {lock}: {e}")
 
     subprocess.run(["git", "add", "upcoming.html"], check=True)
 
