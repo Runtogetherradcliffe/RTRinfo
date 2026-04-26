@@ -13,7 +13,6 @@ import csv
 import io
 import os
 import re
-import subprocess
 import sys
 import urllib.request
 from datetime import date, datetime, timedelta
@@ -303,32 +302,11 @@ def main():
         f.write(html)
     print(f"Written: {OUTPUT_FILE} ({len(html):,} bytes)")
 
-    # Commit and push
-    os.chdir(SITE_DIR)
-
-    # Clear any stale git lock files left by previous sessions.
-    # os.remove() fails on macOS-mounted volumes (Operation not permitted),
-    # so we rename instead — git only cares that the exact lock filename is gone.
-    for lock in [".git/HEAD.lock", ".git/index.lock"]:
-        if os.path.exists(lock):
-            try:
-                os.rename(lock, lock + ".bak")
-                print(f"Cleared stale lock: {lock}")
-            except OSError as e:
-                print(f"Warning: could not clear {lock}: {e}")
-
-    subprocess.run(["git", "add", "upcoming.html"], check=True)
-
-    # Only commit if there are staged changes
-    result = subprocess.run(["git", "diff", "--cached", "--quiet"])
-    if result.returncode == 0:
-        print("No changes — upcoming.html is already up to date.")
-        return
-
+    # Push via GitHub API — bypasses git lock file issues on FUSE mounts.
+    # (git uses atomic rename() for lock files, which macOS FUSE mounts don't support.)
+    from github_api_push import push_files
     commit_msg = f"Update upcoming runs — {generated_on}"
-    subprocess.run(["git", "commit", "-m", commit_msg], check=True)
-    subprocess.run(["git", "push", "origin", "main"], check=True)
-    print("Pushed to GitHub Pages.")
+    push_files(commit_msg, ["upcoming.html"])
 
 
 if __name__ == "__main__":
