@@ -184,6 +184,7 @@
           <tr><td>21 Feb</td><td>Heaton Park</td><td>27:56 <span class="badge" style="background:#e8f4f8;color:#2471a3">Controlled</span></td><td>157</td></tr>
           <tr><td>7 Mar</td><td>Heaton Park</td><td>24:59 <span class="badge bpb">PB</span></td><td>159</td></tr>
           <tr><td>21 Mar</td><td>Morecambe</td><td>23:40 <span class="badge" style="background:#fde8e8;color:#c0392b">−63s vs COP</span></td><td>161</td></tr>
+          <tr><td>25 Apr</td><td>Heaton Park</td><td>27:44 <span class="badge" style="background:#eaf4fb;color:#2471a3">Post-Peak Divide</span></td><td>153</td></tr>
         </tbody>
       </table>
     </div>
@@ -292,7 +293,7 @@ const notes = [
   'Ultra Prep B2B week (49.07mi): Mon 30 REST. Tue 31 4.33mi social (first run back post-Prague, max HR 145). Wed 1 Apr 5.65mi easy with Paula. Thu 2 Apr 6.37mi mixed pace + S&C. Fri 3 REST. SAT 4 APR 🏔 19.6mi Ultra Prep Day 1 with Nikki — avg HR 141, Z2 85%, pace 6:56/km, legs tight from mile 17. SUN 5 APR Cotton Steel 13.12mi — avg HR 124, Z1 63%, +491m/-606m, hail & snow on peaks, legs ok! B2B total 32.7mi.',
   'Mini rebuild (Apr 6–11, partial): Mon 6 social run 6.04mi — avg HR 126, max 146, Z1/Z2 only. Day after 32.7mi B2B. Wed 8: easy run with Paula 6.01mi — avg HR 131, max 141, Z1/Z2, decoupling 0.7% 🔥 (best yet!). Thu 9: RTR social run leader 5.87mi — avg HR 143, max 161, Z3/Z4 from hilly terrain (group ran full route). Sat 11: recovery run 5.85mi — avg HR 126, max 139, Z1 79% / Z2 21%, walk sections (HRV low). 7 days to Peak Divide.',
   '🏔 PEAK DIVIDE ULTRA COMPLETE! 66.23mi total week (biggest week of the block!). Mon 13 easy run 6.01mi HR 135, decoupling 1.5% 🔥. Tue 14 REST. Wed 15 easy trail walk-run with Paula 5.33mi HR 126, +495ft. Thu 16 RTR social run 4.45mi HR 127, max 173 on steep hill. SAT 18 🏔 PEAK DIVIDE DAY 1 DONE — 26.64mi, avg HR 133, max 159, Z1 39%/Z2 43%/Z3 18%, +3,658ft/-3,001ft, 8h17m moving (watch stopped at rest point → 2 FIT files). SUN 19 🏔 PEAK DIVIDE DAY 2 DONE — 23.80mi, HR monitor stopped at ~10mi but valid data all Z1 avg 117, +2,969ft/-3,684ft, 7h38m. B2B TOTAL: 50.44mi (planned 47.2mi — 3.24mi extra!), ~15h55m moving, +6,627ft total elev gain, 6,332 cal over 2 days.',
-  '🛌 Post-Peak Divide recovery (in progress). Mon–Tue: full rest. WED 22 APR: first run back 4.67mi — avg HR 125, max 145, Z1 60%/Z2 40%, zero Z3. Felt great! THU 23 APR: light jeffing session 2.83mi — avg HR 110, max 133, 99% Z1, 28 run/walk laps, entirely restorative. FRI 24 APR: hike 5.34mi, 2h14m, avg HR 82, max 106, +561ft/-528ft — 100% Z1, purely passive recovery. SAT 25 APR: parkrun (Heaton Park) 3.12mi — 27:44, avg HR 153, max 173. First parkrun since Morecambe 5 weeks ago. km splits: 5:56/5:21/5:47/5:08/5:17 — lovely HR build (135→151→160→160→166). Z4/Z5=62% — genuine effort, pace naturally slower 6 days post-Peak Divide. SUN 26 APR: easy run with Paige 5.12mi — avg HR 130, max 153, Z1 51%/Z2 47%/Z3 2%, 10:31/mi avg, +203ft/-282ft. Social run, HR built naturally from 116→142 over laps. Beautifully controlled recovery effort 7 days post-Peak Divide. Week complete.',
+  '🛌 Post-Peak Divide recovery — Week 12 complete (15.74mi). Mon–Tue: full rest. WED 22 APR: first run back 4.67mi — avg HR 125, max 145, Z1/Z2 only, zero Z3. Felt great! THU 23 APR: jeffing 2.83mi — avg HR 110, 99% Z1, purely restorative. FRI 24 APR: hike 5.34mi, avg HR 82 — 100% Z1. SAT 25 APR: Heaton Park parkrun 27:44 — avg HR 153, max 173, Z4/Z5=62%. SUN 26 APR: easy run with Paige 5.12mi — avg HR 130, max 153, Z1 51%/Z2 47%, 10:31/mi avg. Recovery week ticked off.',
 ];
 
 const mainCtx = document.getElementById('mainChart').getContext('2d');
@@ -340,13 +341,13 @@ const prCtx = document.getElementById('parkrunChart').getContext('2d');
 new Chart(prCtx, {
   type:'line',
   data:{
-    labels:['17 Jan','24 Jan','31 Jan','7 Feb','14 Feb','21 Feb','7 Mar','21 Mar'],
+    labels:['17 Jan','24 Jan','31 Jan','7 Feb','14 Feb','21 Feb','7 Mar','21 Mar','25 Apr'],
     datasets:[
-      { label:'Parkrun time', data:[28.883,27.433,26.317,26.483,26.133,27.933,24.983,23.667],
+      { label:'Parkrun time', data:[28.883,27.433,26.317,26.483,26.133,27.933,24.983,23.667,27.733],
         borderColor:'#1a5276', backgroundColor:'rgba(26,82,118,0.07)',
-        pointBackgroundColor:['#7f8c8d','#f39c12','#f39c12','#1a5276','#f39c12','#9b59b6','#27ae60','#e74c3c'],
+        pointBackgroundColor:['#7f8c8d','#f39c12','#f39c12','#1a5276','#f39c12','#9b59b6','#27ae60','#e74c3c','#5dade2'],
         pointRadius:7, borderWidth:2.5, tension:0.3, fill:true },
-      { label:'All-time PB (23:08)', data:[23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133],
+      { label:'All-time PB (23:08)', data:[23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133],
         borderColor:'#e74c3c', borderDash:[5,5], borderWidth:1.5, pointRadius:0, fill:false }
     ]
   },
