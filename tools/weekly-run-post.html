@@ -265,8 +265,8 @@
     </div>
   </div>
   <div class="field" id="customHeadlineField" style="display:none">
-    <label>Custom headline (use | for line break, * for accent)</label>
-    <input type="text" id="tw-customhl" placeholder="e.g. See you|*Thursday.*">
+    <label>Custom headline — first line normal, second line <em style="color:#f5a623;font-style:normal;">accent colour</em></label>
+    <input type="text" id="tw-customhl" placeholder="e.g. See you Thursday | under the blossom.">
   </div>
 
   <span class="tsep">Date &amp; eyebrow</span>
@@ -315,8 +315,8 @@
   const TWEAKS = /*EDITMODE-BEGIN*/{
     "theme": "tour",
     "layout": "route",
-    "headline": "tour",
-    "customHl": "",
+    "headline": "custom",
+    "customHl": "We're | on tour",
     "day": "24",
     "month": "APRIL",
     "time": "7:00 PM",
@@ -385,8 +385,11 @@
     // Headline
     const hlEl = document.getElementById('headlineEl');
     if (TWEAKS.headline === 'custom') {
-      hlEl.innerHTML = (TWEAKS.customHl || '<span style="opacity:.4">Your headline</span>')
-        .replace(/\|/g,'<br>').replace(/\*(.*?)\*/g,'<em>$1</em>');
+      // Split on | — first part normal, second part accent coloured
+      const parts = (TWEAKS.customHl || '').split('|');
+      const first = parts[0] ? parts[0].replace(/\*(.*?)\*/g,'<em>$1</em>') : '';
+      const second = parts[1] ? parts[1].replace(/\*(.*?)\*/g,'<em>$1</em>') : '';
+      hlEl.innerHTML = first + (second ? '<br><em>' + second + '</em>' : '') || '<span style="opacity:.4">Your headline</span>';
       document.getElementById('customHeadlineField').style.display = 'block';
     } else {
       hlEl.innerHTML = HEADLINES[TWEAKS.headline] || HEADLINES.trainers;
