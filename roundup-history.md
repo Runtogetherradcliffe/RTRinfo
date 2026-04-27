@@ -230,3 +230,47 @@ A running summary of each week's post, used to maintain continuity in language, 
 - "had a fine morning" (Tracy Wroe at Peel)
 - "enjoyed a parkwalk" (Angela Pradena at Pendle)
 - "headed all the way to the East Yorkshire coast" (Lucie Tighe at Sewerby)
+
+---
+
+## 26 April 2026
+
+**Parkrun — 20 runners across 11 venues (Senthil Kumar Sampath excluded — unrecognised registrant; website said 22, app said 21 including Senthil)**
+
+- **Ashbourne Recreation Ground** (214 runners): Rachael Fiske (first visit, 3 total parkruns)
+- **Bolton** (289 runners): Paula Crosland (155 runs, regular venue)
+- **Bramhall** (410 runners): Delphine Bugarel (44 runs, first visit)
+- **Carlingwark Loch** (97 runners): Ros Dines (83 runs, first visit to Scotland)
+- **Clarence** (119 runners): Stephen Crowe (226 runs, course PB 💜)
+- **Cleethorpes** (310 runners): Kath Biddle (324 runs, first visit)
+- **Heaton** (910 runners): Lewis Moore (27 runs, led the way), Cheryl Stewardson (34 runs, course PB 💜), Dale Richards (216 runs), Paul Cox (86 runs), Josh Young (96 runs), Rebecca Smith (8 runs), Chris Grayshon (97 runs)
+- **Lincoln** (408 runners): Neil Naisbitt (181 runs, first visit), Helen Naisbitt (53 runs, first visit)
+- **Ormskirk** (443 runners): Angela Pradena (207 runs, first visit)
+- **Peel** (661 runners): Tracy Wroe (250th parkrun milestone! 🎉), Chris Chris (parkwalk, 46:20)
+- **Ruthin Memorial Playing Fields** (97 runners): Andrew Whitehead (379 runs, first visit), Alison Whitehead (407 runs, first visit)
+
+**Milestones / achievements**:
+- Tracy Wroe: 250th parkrun at Peel
+- Cheryl Stewardson: course PB at Heaton
+- Stephen Crowe: course PB at Clarence
+
+**Races — Sunday 26 April**
+- Si Foulkes — TCS London Marathon (historic race: Sabastian Sawe ran first sub-2-hour marathon in open competition; Tigst Assefa set women's world record)
+
+**Non-local venue descriptions used**:
+- Carlingwark Loch: 3-lap route on tarmac paths and grass alongside Carlingwark Loch in Castle Douglas, Dumfries and Galloway
+- Ruthin Memorial Playing Fields: flat 3-lap route on wide tarmac paths around the playing fields of historic Ruthin in the Clwyd Valley, North Wales
+
+**Phrases used**
+- "went furthest of all this week" (Ros Dines)
+- "heading up the pack" (Lewis Moore at Heaton)
+- "flying the flag in fine style by the sea" (Kath Biddle at Cleethorpes)
+- "was in excellent form" (Stephen Crowe at Clarence)
+- "had a great run and came away with a course PB" (Cheryl Stewardson at Heaton)
+- "in great form at Bolton" (Paula Crosland)
+- "running strongly" (Helen Naisbitt)
+- "first of the pair home" (Neil Naisbitt at Lincoln)
+- "made the trip over to Lancashire" (Angela Pradena at Ormskirk)
+- "headed to Bramhall for a first visit" (Delphine Bugarel)
+- "ticking off a new venue" (Rachael Fiske at Ashbourne)
+- "enjoying a parkwalk" (Chris at Peel)
