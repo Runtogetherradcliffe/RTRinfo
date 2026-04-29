@@ -213,6 +213,13 @@
             transition: color 0.2s; white-space: nowrap;
         }
         .download-btn:hover { color: #f5a623; }
+        .strava-btn {
+            font-size: 0.82rem; color: #fc4c02;
+            text-decoration: none; display: flex; align-items: center; gap: 0.3rem;
+            transition: opacity 0.2s; white-space: nowrap;
+        }
+        .strava-btn:hover { opacity: 0.75; }
+        .strava-btn.hidden { display: none; }
 
         footer {
             text-align: center; padding-top: 2rem; margin-top: 3rem;
@@ -288,6 +295,11 @@
                 <div class="stat"><strong id="stat-distance">&mdash;</strong>&nbsp;distance</div>
                 <div class="stat"><strong id="stat-elevation">&mdash;</strong>&nbsp;elevation gain</div>
                 <div class="footer-actions">
+
+                    <a class="strava-btn hidden" id="strava-btn" href="#" target="_blank" rel="noopener">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
+                        View on Strava
+                    </a>
                     <a class="download-btn" id="download-btn" href="#" download>
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -316,378 +328,432 @@
     "name": "Ainsworth, Turks, Bolton Rd",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--ainsworth-turks-bolton-rd.gpx"
+    "gpx": "routes-gpx/road-5k--ainsworth-turks-bolton-rd.gpx",
+    "strava": "https://www.strava.com/routes/3014872027073088056"
   },
   {
     "id": "road-5k--banana-path-one-loop",
     "name": "Banana path - One loop",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--banana-path-one-loop.gpx"
+    "gpx": "routes-gpx/road-5k--banana-path-one-loop.gpx",
+    "strava": "https://www.strava.com/routes/3393965786779117240"
   },
   {
     "id": "road-5k--christmas-route",
     "name": "Christmas route",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--christmas-route.gpx"
+    "gpx": "routes-gpx/road-5k--christmas-route.gpx",
+    "strava": "https://www.strava.com/routes/3170729342549470078"
   },
   {
     "id": "road-5k--church-st-eton-hill-spring-lane-asda",
     "name": "Church St, Eton Hill, Spring Lane, Asda",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--church-st-eton-hill-spring-lane-asda.gpx"
+    "gpx": "routes-gpx/road-5k--church-st-eton-hill-spring-lane-asda.gpx",
+    "strava": "https://www.strava.com/routes/3156703925131961894"
   },
   {
     "id": "road-5k--eton-hill-road-bury-road-spring-lane",
     "name": "Eton Hill Road-Bury Road-Spring Lane",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--eton-hill-road-bury-road-spring-lane.gpx"
+    "gpx": "routes-gpx/road-5k--eton-hill-road-bury-road-spring-lane.gpx",
+    "strava": "https://www.strava.com/routes/3009527540617317318"
   },
   {
     "id": "road-5k--oab-to-bury",
     "name": "OAB to Bury",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--oab-to-bury.gpx"
+    "gpx": "routes-gpx/road-5k--oab-to-bury.gpx",
+    "strava": "https://www.strava.com/routes/3184108921197884234"
   },
   {
     "id": "road-5k--oab-to-phillips-park",
     "name": "OAB to Phillips Park",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--oab-to-phillips-park.gpx"
+    "gpx": "routes-gpx/road-5k--oab-to-phillips-park.gpx",
+    "strava": "https://www.strava.com/routes/3472170504437106484"
   },
   {
     "id": "road-5k--rnr-bnr-higher-lane-stand",
     "name": "RNR, BNR, Higher Lane, Stand",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--rnr-bnr-higher-lane-stand.gpx"
+    "gpx": "routes-gpx/road-5k--rnr-bnr-higher-lane-stand.gpx",
+    "strava": "https://www.strava.com/routes/3159612239682042526"
   },
   {
     "id": "road-5k--rnr-bnr-pinfold-higher-ringley-stand",
     "name": "RNR, BNR, Pinfold, Higher, Ringley, Stand",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--rnr-bnr-pinfold-higher-ringley-stand.gpx"
+    "gpx": "routes-gpx/road-5k--rnr-bnr-pinfold-higher-ringley-stand.gpx",
+    "strava": "https://www.strava.com/routes/3269306827076940110"
   },
   {
     "id": "road-5k--rnr-bury-nr-higher-ln",
     "name": "RNR, Bury NR, Higher Ln",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--rnr-bury-nr-higher-ln.gpx"
+    "gpx": "routes-gpx/road-5k--rnr-bury-nr-higher-ln.gpx",
+    "strava": "https://www.strava.com/routes/3149047187476475694"
   },
   {
     "id": "road-5k--rnr-dales-ringley-outwood-sion-oab",
     "name": "RNR, Dales, Ringley, Outwood, Sion OAB",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--rnr-dales-ringley-outwood-sion-oab.gpx"
+    "gpx": "routes-gpx/road-5k--rnr-dales-ringley-outwood-sion-oab.gpx",
+    "strava": "https://www.strava.com/routes/3154721036244059362"
   },
   {
     "id": "road-5k--rnr-ringley-outwood",
     "name": "RNR, Ringley, Outwood",
     "category": "road-5k",
     "categoryLabel": "Road 5k",
-    "gpx": "routes-gpx/road-5k--rnr-ringley-outwood.gpx"
+    "gpx": "routes-gpx/road-5k--rnr-ringley-outwood.gpx",
+    "strava": "https://www.strava.com/routes/3143973626518069634"
   },
   {
     "id": "road-8k--3-peaks",
     "name": "3 peaks",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--3-peaks.gpx"
+    "gpx": "routes-gpx/road-8k--3-peaks.gpx",
+    "strava": "https://www.strava.com/routes/3111044010084213850"
   },
   {
     "id": "road-8k--banana-path-two-loops",
     "name": "Banana path - Two loops",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--banana-path-two-loops.gpx"
+    "gpx": "routes-gpx/road-8k--banana-path-two-loops.gpx",
+    "strava": "https://www.strava.com/routes/3393965566103333730"
   },
   {
     "id": "road-8k--christmas-route",
     "name": "Christmas route",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--christmas-route.gpx"
+    "gpx": "routes-gpx/road-8k--christmas-route.gpx",
+    "strava": "https://www.strava.com/routes/3170729342549470078"
   },
   {
     "id": "road-8k--dumers-mcr-rd-bury-rd",
     "name": "Dumers, Mcr Rd, Bury Rd",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--dumers-mcr-rd-bury-rd.gpx"
+    "gpx": "routes-gpx/road-8k--dumers-mcr-rd-bury-rd.gpx",
+    "strava": "https://www.strava.com/routes/3009567569353666076"
   },
   {
     "id": "road-8k--oab-to-bury",
     "name": "OAB to Bury",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--oab-to-bury.gpx"
+    "gpx": "routes-gpx/road-8k--oab-to-bury.gpx",
+    "strava": "https://www.strava.com/routes/3184108921197884234"
   },
   {
     "id": "road-8k--oab-to-phillips-park",
     "name": "OAB to Phillips Park",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--oab-to-phillips-park.gpx"
+    "gpx": "routes-gpx/road-8k--oab-to-phillips-park.gpx",
+    "strava": "https://www.strava.com/routes/3472170504437106484"
   },
   {
     "id": "road-8k--rnr-bury-nr-dumers",
     "name": "RNR, Bury NR, Dumers",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--rnr-bury-nr-dumers.gpx"
+    "gpx": "routes-gpx/road-8k--rnr-bury-nr-dumers.gpx",
+    "strava": "https://www.strava.com/routes/3149045619918004014"
   },
   {
     "id": "road-8k--rnr-bury-tesco-ringley-stand",
     "name": "RNR, Bury, Tesco, Ringley, Stand",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--rnr-bury-tesco-ringley-stand.gpx"
+    "gpx": "routes-gpx/road-8k--rnr-bury-tesco-ringley-stand.gpx",
+    "strava": "https://www.strava.com/routes/3159612882829920040"
   },
   {
     "id": "road-8k--rnr-dales-ringley-outwood-sion-oab",
     "name": "RNR, Dales, Ringley, Outwood, Sion OAB",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--rnr-dales-ringley-outwood-sion-oab.gpx"
+    "gpx": "routes-gpx/road-8k--rnr-dales-ringley-outwood-sion-oab.gpx",
+    "strava": "https://www.strava.com/routes/3154721036244059362"
   },
   {
     "id": "road-8k--rnr-rufford-moss-pinfold-ringley-outwood",
     "name": "RNR, Rufford, Moss, Pinfold, Ringley, Outwood",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--rnr-rufford-moss-pinfold-ringley-outwood.gpx"
+    "gpx": "routes-gpx/road-8k--rnr-rufford-moss-pinfold-ringley-outwood.gpx",
+    "strava": "https://www.strava.com/routes/3269304543133541542"
   },
   {
     "id": "road-8k--radcliffe-moor-bolton-bury-reverse",
     "name": "Radcliffe Moor Bolton Bury (reverse)",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--radcliffe-moor-bolton-bury-reverse.gpx"
+    "gpx": "routes-gpx/road-8k--radcliffe-moor-bolton-bury-reverse.gpx",
+    "strava": "https://www.strava.com/routes/3146530685844674778"
   },
   {
     "id": "road-8k--radcliffe-moor-bolton-bury",
     "name": "Radcliffe Moor Bolton Bury",
     "category": "road-8k",
     "categoryLabel": "Road 8k",
-    "gpx": "routes-gpx/road-8k--radcliffe-moor-bolton-bury.gpx"
+    "gpx": "routes-gpx/road-8k--radcliffe-moor-bolton-bury.gpx",
+    "strava": "https://www.strava.com/routes/3032320014677506260"
   },
   {
     "id": "trail-5k--ainsworth-lowercroft-reservoirs",
     "name": "Ainsworth Lowercroft reservoirs",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--ainsworth-lowercroft-reservoirs.gpx"
+    "gpx": "routes-gpx/trail-5k--ainsworth-lowercroft-reservoirs.gpx",
+    "strava": "https://www.strava.com/routes/3383818370492484284"
   },
   {
     "id": "trail-5k--burrs-tour",
     "name": "Burrs tour",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--burrs-tour.gpx"
+    "gpx": "routes-gpx/trail-5k--burrs-tour.gpx",
+    "strava": "https://www.strava.com/routes/3359995887897533656"
   },
   {
     "id": "trail-5k--clifton-county-park",
     "name": "Clifton County Park",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--clifton-county-park.gpx"
+    "gpx": "routes-gpx/trail-5k--clifton-county-park.gpx",
+    "strava": "https://www.strava.com/routes/3359538865620700472"
   },
   {
     "id": "trail-5k--crompton-lodges-and-canal",
     "name": "Crompton Lodges and canal",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--crompton-lodges-and-canal.gpx"
+    "gpx": "routes-gpx/trail-5k--crompton-lodges-and-canal.gpx",
+    "strava": "https://www.strava.com/routes/3392916448653953272"
   },
   {
     "id": "trail-5k--exploring-elton",
     "name": "Exploring Elton",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--exploring-elton.gpx"
+    "gpx": "routes-gpx/trail-5k--exploring-elton.gpx",
+    "strava": "https://www.strava.com/routes/3353363057471959850"
   },
   {
     "id": "trail-5k--halloween-run",
     "name": "Halloween run",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--halloween-run.gpx"
+    "gpx": "routes-gpx/trail-5k--halloween-run.gpx",
+    "strava": "https://www.strava.com/routes/3413211191947237644"
   },
   {
     "id": "trail-5k--out-and-back-along-the-canal",
     "name": "Out and back along the canal",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--out-and-back-along-the-canal.gpx"
+    "gpx": "routes-gpx/trail-5k--out-and-back-along-the-canal.gpx",
+    "strava": "https://www.strava.com/routes/3230970266706252922"
   },
   {
     "id": "trail-5k--outwood-oab",
     "name": "Outwood OAB",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--outwood-oab.gpx"
+    "gpx": "routes-gpx/trail-5k--outwood-oab.gpx",
+    "strava": "https://www.strava.com/routes/3210328480860101850"
   },
   {
     "id": "trail-5k--outwood-to-ringley",
     "name": "Outwood to Ringley",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--outwood-to-ringley.gpx"
+    "gpx": "routes-gpx/trail-5k--outwood-to-ringley.gpx",
+    "strava": "https://www.strava.com/routes/3222603090666458282"
   },
   {
     "id": "trail-5k--outwood-to-scout-camp-and-back",
     "name": "Outwood to Scout camp and back",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--outwood-to-scout-camp-and-back.gpx"
+    "gpx": "routes-gpx/trail-5k--outwood-to-scout-camp-and-back.gpx",
+    "strava": "https://www.strava.com/routes/3260734125850421590"
   },
   {
     "id": "trail-5k--outwood-king-george-v-playing-fields",
     "name": "Outwood, King George V, playing fields",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--outwood-king-george-v-playing-fields.gpx"
+    "gpx": "routes-gpx/trail-5k--outwood-king-george-v-playing-fields.gpx",
+    "strava": "https://www.strava.com/routes/3116320771838179772"
   },
   {
     "id": "trail-5k--outwood-ringley-lake",
     "name": "Outwood, Ringley, Lake",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--outwood-ringley-lake.gpx"
+    "gpx": "routes-gpx/trail-5k--outwood-ringley-lake.gpx",
+    "strava": "https://www.strava.com/routes/3250852309727076892"
   },
   {
     "id": "trail-5k--outwood-canal-banana-path",
     "name": "Outwood, canal, banana path",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--outwood-canal-banana-path.gpx"
+    "gpx": "routes-gpx/trail-5k--outwood-canal-banana-path.gpx",
+    "strava": "https://www.strava.com/routes/3336436018958223302"
   },
   {
     "id": "trail-5k--rnr-chapelfield",
     "name": "RNR, Chapelfield",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--rnr-chapelfield.gpx"
+    "gpx": "routes-gpx/trail-5k--rnr-chapelfield.gpx",
+    "strava": "https://www.strava.com/routes/3212105058406369490"
   },
   {
     "id": "trail-5k--rtr-5k-withins-res-back-via-banana-path",
     "name": "RTR 5k Withins res back via banana path",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--rtr-5k-withins-res-back-via-banana-path.gpx"
+    "gpx": "routes-gpx/trail-5k--rtr-5k-withins-res-back-via-banana-path.gpx",
+    "strava": "https://www.strava.com/routes/3336768662916251852"
   },
   {
     "id": "trail-5k--springwater-new-path",
     "name": "Springwater new path",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--springwater-new-path.gpx"
+    "gpx": "routes-gpx/trail-5k--springwater-new-path.gpx",
+    "strava": "https://www.strava.com/routes/3207357537265087662"
   },
   {
     "id": "trail-5k--springwater-park",
     "name": "Springwater park",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--springwater-park.gpx"
+    "gpx": "routes-gpx/trail-5k--springwater-park.gpx",
+    "strava": "https://www.strava.com/routes/3267571547081021606"
   },
   {
     "id": "trail-5k--withins-and-elton-back-along-canal",
     "name": "Withins and Elton back along canal",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--withins-and-elton-back-along-canal.gpx"
+    "gpx": "routes-gpx/trail-5k--withins-and-elton-back-along-canal.gpx",
+    "strava": "https://www.strava.com/routes/3338491726957523158"
   },
   {
     "id": "trail-5k--withins-res-back-via-banana-path",
     "name": "Withins res back via banana path",
     "category": "trail-5k",
     "categoryLabel": "Trail 5k",
-    "gpx": "routes-gpx/trail-5k--withins-res-back-via-banana-path.gpx"
+    "gpx": "routes-gpx/trail-5k--withins-res-back-via-banana-path.gpx",
+    "strava": "https://www.strava.com/routes/3336768662916251852"
   },
   {
     "id": "trail-8k--ainsworth-lowercroft-reservoirs",
     "name": "Ainsworth Lowercroft reservoirs",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--ainsworth-lowercroft-reservoirs.gpx"
+    "gpx": "routes-gpx/trail-8k--ainsworth-lowercroft-reservoirs.gpx",
+    "strava": "https://www.strava.com/routes/3384187598366849262"
   },
   {
     "id": "trail-8k--ainsworth-bradley-fold-canal",
     "name": "Ainsworth, Bradley Fold, Canal",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--ainsworth-bradley-fold-canal.gpx"
+    "gpx": "routes-gpx/trail-8k--ainsworth-bradley-fold-canal.gpx",
+    "strava": "https://www.strava.com/routes/3243264226029184442"
   },
   {
     "id": "trail-8k--along-the-canal-and-around-elton",
     "name": "Along the canal and around Elton",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--along-the-canal-and-around-elton.gpx"
+    "gpx": "routes-gpx/trail-8k--along-the-canal-and-around-elton.gpx",
+    "strava": "https://www.strava.com/routes/3375226949475532034"
   },
   {
     "id": "trail-8k--along-the-canal-to-elton-res",
     "name": "Along the canal to Elton Res",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--along-the-canal-to-elton-res.gpx"
+    "gpx": "routes-gpx/trail-8k--along-the-canal-to-elton-res.gpx",
+    "strava": "https://www.strava.com/routes/3335652372641939658"
   },
   {
     "id": "trail-8k--burrs-to-summerseat-loop",
     "name": "Burrs to Summerseat loop",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--burrs-to-summerseat-loop.gpx"
+    "gpx": "routes-gpx/trail-8k--burrs-to-summerseat-loop.gpx",
+    "strava": "https://www.strava.com/routes/3358370437494086690"
   },
   {
     "id": "trail-8k--canal-out-road-back",
     "name": "Canal out, road back",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--canal-out-road-back.gpx"
+    "gpx": "routes-gpx/trail-8k--canal-out-road-back.gpx",
+    "strava": "https://www.strava.com/routes/3267568647391971854"
   },
   {
     "id": "trail-8k--canal-elton-woos-daisyfield",
     "name": "Canal, Elton, Woos, Daisyfield",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--canal-elton-woos-daisyfield.gpx"
+    "gpx": "routes-gpx/trail-8k--canal-elton-woos-daisyfield.gpx",
+    "strava": "https://www.strava.com/routes/3220699216749887858"
   },
   {
     "id": "trail-8k--canal-around-elton-and-back-via-banana-path",
     "name": "Canal, around Elton and back via Banana path",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--canal-around-elton-and-back-via-banana-path.gpx"
+    "gpx": "routes-gpx/trail-8k--canal-around-elton-and-back-via-banana-path.gpx",
+    "strava": "https://www.strava.com/routes/3215053992931532690"
   },
   {
     "id": "trail-8k--chapelfield-ringley-old-hall-outwood",
     "name": "Chapelfield, Ringley, Old Hall, Outwood",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--chapelfield-ringley-old-hall-outwood.gpx"
+    "gpx": "routes-gpx/trail-8k--chapelfield-ringley-old-hall-outwood.gpx",
+    "strava": "https://www.strava.com/routes/3335697473116313930"
   },
   {
     "id": "trail-8k--clifton-country-park",
     "name": "Clifton Country Park",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--clifton-country-park.gpx"
+    "gpx": "routes-gpx/trail-8k--clifton-country-park.gpx",
+    "strava": "https://www.strava.com/routes/3364313837484905984"
   },
   {
     "id": "trail-8k--crompton-lodges-and-canal",
     "name": "Crompton Lodges and canal",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--crompton-lodges-and-canal.gpx"
+    "gpx": "routes-gpx/trail-8k--crompton-lodges-and-canal.gpx",
+    "strava": "https://www.strava.com/routes/3395095418611585812"
   },
   {
     "id": "trail-8k--halloween-run",
@@ -701,67 +767,75 @@
     "name": "Kirkless trail",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--kirkless-trail.gpx"
+    "gpx": "routes-gpx/trail-8k--kirkless-trail.gpx",
+    "strava": "https://www.strava.com/routes/3353361995679375044"
   },
   {
     "id": "trail-8k--outwood-oab",
     "name": "Outwood OAB",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--outwood-oab.gpx"
+    "gpx": "routes-gpx/trail-8k--outwood-oab.gpx",
+    "strava": "https://www.strava.com/routes/3210328480860101850"
   },
   {
     "id": "trail-8k--outwood-giants-seat-snape",
     "name": "Outwood, Giants seat, Snape",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--outwood-giants-seat-snape.gpx"
+    "gpx": "routes-gpx/trail-8k--outwood-giants-seat-snape.gpx",
+    "strava": "https://www.strava.com/routes/3348244182482782494"
   },
   {
     "id": "trail-8k--outwood-hurst-wood-golf-course-chapelfield",
     "name": "Outwood, Hurst Wood, Golf course, Chapelfield",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--outwood-hurst-wood-golf-course-chapelfield.gpx"
+    "gpx": "routes-gpx/trail-8k--outwood-hurst-wood-golf-course-chapelfield.gpx",
+    "strava": "https://www.strava.com/routes/3222604663491506116"
   },
   {
     "id": "trail-8k--outwood-ringley-canal-diversion",
     "name": "Outwood, Ringley, Canal (diversion)",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--outwood-ringley-canal-diversion.gpx"
+    "gpx": "routes-gpx/trail-8k--outwood-ringley-canal-diversion.gpx",
+    "strava": "https://www.strava.com/routes/3467120209961248926"
   },
   {
     "id": "trail-8k--outwood-ringley-canal",
     "name": "Outwood, Ringley, Canal",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--outwood-ringley-canal.gpx"
+    "gpx": "routes-gpx/trail-8k--outwood-ringley-canal.gpx",
+    "strava": "https://www.strava.com/routes/3212376530555491654"
   },
   {
     "id": "trail-8k--stand-snape-outwood",
     "name": "Stand, Snape, Outwood",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--stand-snape-outwood.gpx"
+    "gpx": "routes-gpx/trail-8k--stand-snape-outwood.gpx",
+    "strava": "https://www.strava.com/routes/3262870905317199660"
   },
   {
     "id": "trail-8k--withins-and-elton-back-via-canal",
     "name": "Withins And Elton Back Via Canal",
     "category": "trail-8k",
     "categoryLabel": "Trail 8k",
-    "gpx": "routes-gpx/trail-8k--withins-and-elton-back-via-canal.gpx"
+    "gpx": "routes-gpx/trail-8k--withins-and-elton-back-via-canal.gpx",
+    "strava": "https://www.strava.com/routes/3338492756139055390"
   },
   {
     "id": "social-long-run--steel-cotton-rail-trail-stage-4-edale-to-hathersage",
-    "name": "Steel Cotton Rail Trail – Stage 4: Edale to Hathersage",
+    "name": "Steel Cotton Rail Trail \u2013 Stage 4: Edale to Hathersage",
     "category": "social-long-run",
     "categoryLabel": "Social Long Run",
     "gpx": "routes-gpx/social-long-run--steel-cotton-rail-trail-stage-4-edale-to-hathersage.gpx"
   },
   {
     "id": "social-long-run--steel-cotton-rail-trail-stage-5-hathersage-to-sheffield",
-    "name": "Steel Cotton Rail Trail – Stage 5: Hathersage to Sheffield",
+    "name": "Steel Cotton Rail Trail \u2013 Stage 5: Hathersage to Sheffield",
     "category": "social-long-run",
     "categoryLabel": "Social Long Run",
     "gpx": "routes-gpx/social-long-run--steel-cotton-rail-trail-stage-5-hathersage-to-sheffield.gpx"
@@ -835,6 +909,14 @@
         const dlBtn = document.getElementById('download-btn');
         dlBtn.href = route.gpx;
         dlBtn.download = route.name + '.gpx';
+        const stravaBtn = document.getElementById('strava-btn');
+        if (route.strava) {
+            stravaBtn.href = route.strava;
+            stravaBtn.classList.remove('hidden');
+        } else {
+            stravaBtn.classList.add('hidden');
+        }
+
 
         const overlay = document.getElementById('map-overlay');
         overlay.classList.add('open');
