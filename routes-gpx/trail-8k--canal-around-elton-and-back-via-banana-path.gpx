@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx creator="StravaGPX" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
  <metadata>
-  <name>RTR - Canal, around Elton and back via Banana path</name>
+  <name>RTR 8k Canal, around Elton and back via Banana path</name>
   <desc>This route avoids the closed section of the banana path</desc>
   <author>
    <name>Paul Cox</name>
@@ -367,71 +367,44 @@
    <trkpt lat="53.58648" lon="-2.3190700000000004">
     <ele>92.12</ele>
    </trkpt>
-   <trkpt lat="53.58597" lon="-2.31998">
-    <ele>92.45</ele>
+   <trkpt lat="53.586470000000006" lon="-2.3190700000000004">
+    <ele>91.89000000000001</ele>
    </trkpt>
-   <trkpt lat="53.58552" lon="-2.32111">
-    <ele>95.30000000000001</ele>
+   <trkpt lat="53.58590334239655" lon="-2.3201133613344007">
+    <ele>92.28</ele>
    </trkpt>
-   <trkpt lat="53.585660000000004" lon="-2.32125">
-    <ele>96.33000000000001</ele>
+   <trkpt lat="53.585336675716945" lon="-2.321156694690972">
+    <ele>92.75000000000001</ele>
    </trkpt>
-   <trkpt lat="53.58572" lon="-2.32147">
-    <ele>96.56</ele>
+   <trkpt lat="53.584770000000006" lon="-2.3222">
+    <ele>95.10000000000001</ele>
    </trkpt>
-   <trkpt lat="53.585550000000005" lon="-2.3217800000000004">
-    <ele>96.77000000000001</ele>
+   <trkpt lat="53.5846" lon="-2.3223200000000004">
+    <ele>95.83000000000001</ele>
    </trkpt>
-   <trkpt lat="53.58538000000001" lon="-2.32199">
-    <ele>97.11</ele>
+   <trkpt lat="53.58446000000001" lon="-2.32256">
+    <ele>95.92</ele>
    </trkpt>
-   <trkpt lat="53.58503" lon="-2.32274">
-    <ele>98.03</ele>
+   <trkpt lat="53.584140000000005" lon="-2.32309">
+    <ele>96.10000000000001</ele>
    </trkpt>
-   <trkpt lat="53.58502000000001" lon="-2.3227900000000004">
-    <ele>98.03</ele>
-   </trkpt>
-   <trkpt lat="53.585040000000006" lon="-2.32281">
-    <ele>98.03</ele>
-   </trkpt>
-   <trkpt lat="53.585" lon="-2.3230000000000004">
-    <ele>98.83</ele>
-   </trkpt>
-   <trkpt lat="53.58498" lon="-2.32323">
-    <ele>99.03</ele>
-   </trkpt>
-   <trkpt lat="53.584880000000005" lon="-2.32321">
-    <ele>98.9</ele>
-   </trkpt>
-   <trkpt lat="53.58478" lon="-2.32322">
-    <ele>98.80000000000001</ele>
-   </trkpt>
-   <trkpt lat="53.584450000000004" lon="-2.3234700000000004">
-    <ele>98.48</ele>
-   </trkpt>
-   <trkpt lat="53.58411" lon="-2.3239">
-    <ele>98.46000000000001</ele>
-   </trkpt>
-   <trkpt lat="53.58395" lon="-2.32365">
-    <ele>98.02000000000001</ele>
-   </trkpt>
-   <trkpt lat="53.58386" lon="-2.32357">
-    <ele>97.46000000000001</ele>
+   <trkpt lat="53.583870000000005" lon="-2.32357">
+    <ele>97.33000000000001</ele>
    </trkpt>
    <trkpt lat="53.58377" lon="-2.3235400000000004">
-    <ele>97.27000000000001</ele>
+    <ele>96.82000000000001</ele>
    </trkpt>
    <trkpt lat="53.58331999992939" lon="-2.3236300009790543">
-    <ele>94.68</ele>
+    <ele>94.28</ele>
    </trkpt>
    <trkpt lat="53.58287000000001" lon="-2.3237200000000002">
-    <ele>91.66</ele>
+    <ele>91.29</ele>
    </trkpt>
    <trkpt lat="53.582660000000004" lon="-2.3235400000000004">
-    <ele>90.35000000000001</ele>
+    <ele>90.27</ele>
    </trkpt>
    <trkpt lat="53.58256" lon="-2.32357">
-    <ele>90.4</ele>
+    <ele>90.28000000000002</ele>
    </trkpt>
    <trkpt lat="53.582510000000006" lon="-2.32404">
     <ele>92.83000000000001</ele>
