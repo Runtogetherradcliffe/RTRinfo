@@ -168,7 +168,7 @@
   <div>
     <div class="card" style="margin-bottom:18px">
       <h2>Parkrun Progression</h2>
-      <div class="sub">5k benchmark from injury recovery to taper</div>
+      <div class="sub">5k benchmark — injury recovery through to Widnes HM build</div>
       <canvas id="parkrunChart" height="155"></canvas>
     </div>
     <div class="card">
@@ -184,7 +184,8 @@
           <tr><td>21 Feb</td><td>Heaton Park</td><td>27:56 <span class="badge" style="background:#e8f4f8;color:#2471a3">Controlled</span></td><td>157</td></tr>
           <tr><td>7 Mar</td><td>Heaton Park</td><td>24:59 <span class="badge bpb">PB</span></td><td>159</td></tr>
           <tr><td>21 Mar</td><td>Morecambe</td><td>23:40 <span class="badge" style="background:#fde8e8;color:#c0392b">−63s vs COP</span></td><td>161</td></tr>
-          <tr><td>25 Apr</td><td>Heaton Park</td><td>27:44 <span class="badge" style="background:#e8f4f8;color:#2471a3">Controlled</span></td><td>153</td></tr>
+          <tr><td>25 Apr</td><td>Heaton Park</td><td>27:44 <span class="badge" style="background:#e8f4f8;color:#2471a3">Post-ultra</span></td><td>153</td></tr>
+          <tr><td>2 May</td><td>Heaton Park</td><td>24:58 <span class="badge" style="background:#eafaf1;color:#1e8449">5k pace</span></td><td>166 (max 179)</td></tr>
         </tbody>
       </table>
     </div>
@@ -347,13 +348,13 @@ const prCtx = document.getElementById('parkrunChart').getContext('2d');
 new Chart(prCtx, {
   type:'line',
   data:{
-    labels:['17 Jan','24 Jan','31 Jan','7 Feb','14 Feb','21 Feb','7 Mar','21 Mar','25 Apr'],
+    labels:['17 Jan','24 Jan','31 Jan','7 Feb','14 Feb','21 Feb','7 Mar','21 Mar','25 Apr','2 May'],
     datasets:[
-      { label:'Parkrun time', data:[28.883,27.433,26.317,26.483,26.133,27.933,24.983,23.667,27.733],
+      { label:'Parkrun time', data:[28.883,27.433,26.317,26.483,26.133,27.933,24.983,23.667,27.733,24.967],
         borderColor:'#1a5276', backgroundColor:'rgba(26,82,118,0.07)',
-        pointBackgroundColor:['#7f8c8d','#f39c12','#f39c12','#1a5276','#f39c12','#9b59b6','#27ae60','#e74c3c','#5dade2'],
+        pointBackgroundColor:['#7f8c8d','#f39c12','#f39c12','#1a5276','#f39c12','#9b59b6','#27ae60','#e74c3c','#5dade2','#2ecc71'],
         pointRadius:7, borderWidth:2.5, tension:0.3, fill:true },
-      { label:'All-time PB (23:08)', data:[23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133],
+      { label:'All-time PB (23:08)', data:[23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133],
         borderColor:'#e74c3c', borderDash:[5,5], borderWidth:1.5, pointRadius:0, fill:false }
     ]
   },
