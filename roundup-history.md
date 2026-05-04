@@ -274,3 +274,43 @@ A running summary of each week's post, used to maintain continuity in language, 
 - "headed to Bramhall for a first visit" (Delphine Bugarel)
 - "ticking off a new venue" (Rachael Fiske at Ashbourne)
 - "enjoying a parkwalk" (Chris at Peel)
+
+## 2 May 2026
+
+**Parkrun — 17 runners/walkers across 7 venues**
+
+- **Alexandra (Moss Side)**: Fiona Case
+- **Bolton**: Paula Crosland
+- **Clarence**: Stephen Crowe (**course PB**, 66th visit)
+- **Conwy**: Delphine Bugarel (non-local description used)
+- **Dunstable Downs**: Jane Grantham (non-local description used)
+- **Heaton**: Neil Naisbitt (first back), Andrew Whitehead, Paul Cox, Dale Richards, Cheryl Stewardson, Kate Myers (**course PB**), Chris (walk), Angela Pradena (walk), Helen Naisbitt (walk), Tanja Brajkovic (walk)
+- **Kingsway Park, Urmston**: Tracy Wroe (event #1 — first ever!)
+
+**Milestones / achievements**:
+- Stephen Crowe: course PB at Clarence (66th visit)
+- Kate Myers: course PB at Heaton
+- Alison Whitehead: 100th volunteering session at parkrun (celebrated walking alongside her)
+- Kingsway Park, Urmston: very first event (#1) — Tracy Wroe was there
+
+**Races — Saturday 2 May**
+- Ken Smith, Lucie Tighe, Mark Taylor, Sarah Wilson — It's a Piece of Cake 10k (Boggart Hole Clough, Manchester Frontrunners)
+- Chris Mihalyi — The Cake Race (Saddleworth Runners, 10 miles, 1,700ft, Diggle/Saddleworth)
+- Kath Biddle — Pennine Barrier Ultra (50 miles, Malham, Yorkshire Three Peaks, 2,500m climb)
+
+**Races — Sunday 3 May**
+- Paula Crosland, Tracy Wroe — Swinton RC Five Mile Ladies Trail Race (Worsley Woods, 34th year)
+
+**Non-local venue descriptions used**:
+- Conwy: "mostly flat route along the banks of the River Conwy on gravel and tarmac paths, with the dramatic backdrop of the medieval castle just across the water"
+- Dunstable Downs: "moderately undulating course run on grass and open paths across the wide chalk downland, with big open skies all around"
+
+**Phrases used**:
+- "in great form" (Fiona Case)
+- "had a fine morning" (Paula Crosland)
+- "first of the group home / running strongly to lead the way" (Neil Naisbitt)
+- "part of a little piece of parkrun history" (Tracy Wroe)
+- "a proper adventure" (Jane Grantham)
+- "ran closely together just behind" (Andrew Whitehead, Paul Cox)
+
+---
