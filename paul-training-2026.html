@@ -109,7 +109,7 @@
 </div>
 
 <div class="metrics-row">
-  <div class="metric"><div class="metric-label">Total Miles</div><div class="metric-value">~716</div><div class="metric-sub">Dec 2025 → 4 May 2026</div></div>
+  <div class="metric"><div class="metric-label">Total Miles</div><div class="metric-value">~719</div><div class="metric-sub">Dec 2025 → 9 May 2026</div></div>
   <div class="metric mt"><div class="metric-label">Peak Week</div><div class="metric-value">66.2mi</div><div class="metric-sub">Apr 13 (Peak Divide) 🏔</div></div>
   <div class="metric mo"><div class="metric-label">Injury Low</div><div class="metric-value">0mi</div><div class="metric-sub">Week of Dec 8</div></div>
   <div class="metric mr"><div class="metric-label">Parkrun Gain</div><div class="metric-value">−5:13</div><div class="metric-sub">28:53 → 23:40</div></div>
@@ -186,6 +186,7 @@
           <tr><td>21 Mar</td><td>Morecambe</td><td>23:40 <span class="badge" style="background:#fde8e8;color:#c0392b">−63s vs COP</span></td><td>161</td></tr>
           <tr><td>25 Apr</td><td>Heaton Park</td><td>27:44 <span class="badge" style="background:#e8f4f8;color:#2471a3">Post-ultra</span></td><td>153</td></tr>
           <tr><td>2 May</td><td>Heaton Park</td><td>24:54 <span class="badge" style="background:#eafaf1;color:#1e8449">5k pace</span></td><td>166 (max 179)</td></tr>
+          <tr><td>9 May</td><td>Heaton Park</td><td>24:44 <span class="badge" style="background:#eafaf1;color:#1e8449">−10s ↑eff</span></td><td>164 (max 177)</td></tr>
         </tbody>
       </table>
     </div>
@@ -236,10 +237,10 @@
       <div class="up-title" style="color:#1e8449">🛌 Recovery phase done</div>
       <div class="up-detail" style="color:#555">2 weeks, ~46mi easy running/walking. Body fully absorbed Peak Divide. Parkrun 24:54 on May 2 confirms strong recovery. S&amp;C starts Mon 4 May.</div>
     </div>
-    <div class="up-card" style="background:#fff3e0">
-      <div class="up-label">~Mon 4 May 2026</div>
-      <div class="up-title" style="color:#e65100">💪 Formal S&amp;C begins</div>
-      <div class="up-detail" style="color:#555">2×/week (Mon + Thu). Glutes · Hip stability · Core · Calf. 20–30 min, dumbbells + bodyweight. 6-week window to embed before marathon block.</div>
+    <div class="up-card" style="background:#eafaf1">
+      <div class="up-label">From Mon 4 May ✅ UNDERWAY</div>
+      <div class="up-title" style="color:#1e8449">💪 S&amp;C Week 1 complete</div>
+      <div class="up-detail" style="color:#555">2×/week. Glutes · Hip stability · Core · Calf. Session 1 Mon 4, Session 2 Tue 5. 6-week window to embed before marathon block.</div>
     </div>
     <div class="up-card" style="background:#eaf2ff">
       <div class="up-label">31 May 2026</div>
@@ -349,13 +350,13 @@ const prCtx = document.getElementById('parkrunChart').getContext('2d');
 new Chart(prCtx, {
   type:'line',
   data:{
-    labels:['17 Jan','24 Jan','31 Jan','7 Feb','14 Feb','21 Feb','7 Mar','21 Mar','25 Apr','2 May'],
+    labels:['17 Jan','24 Jan','31 Jan','7 Feb','14 Feb','21 Feb','7 Mar','21 Mar','25 Apr','2 May','9 May'],
     datasets:[
-      { label:'Parkrun time', data:[28.883,27.433,26.317,26.483,26.133,27.933,24.983,23.667,27.733,24.900],
+      { label:'Parkrun time', data:[28.883,27.433,26.317,26.483,26.133,27.933,24.983,23.667,27.733,24.900,24.733],
         borderColor:'#1a5276', backgroundColor:'rgba(26,82,118,0.07)',
-        pointBackgroundColor:['#7f8c8d','#f39c12','#f39c12','#1a5276','#f39c12','#9b59b6','#27ae60','#e74c3c','#5dade2','#2ecc71'],
+        pointBackgroundColor:['#7f8c8d','#f39c12','#f39c12','#1a5276','#f39c12','#9b59b6','#27ae60','#e74c3c','#5dade2','#2ecc71','#27ae60'],
         pointRadius:7, borderWidth:2.5, tension:0.3, fill:true },
-      { label:'All-time PB (23:08)', data:[23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133],
+      { label:'All-time PB (23:08)', data:[23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133,23.133],
         borderColor:'#e74c3c', borderDash:[5,5], borderWidth:1.5, pointRadius:0, fill:false }
     ]
   },
