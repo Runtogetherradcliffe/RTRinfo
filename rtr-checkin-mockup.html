@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RTR - Check-in and booking mockup</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Inter', sans-serif;
     background: #f0f0f0;
@@ -17,177 +15,52 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     padding: 32px 16px 48px;
   }
-
-  .page-header {
-    text-align: center;
-    margin-bottom: 28px;
-    max-width: 520px;
-  }
-  .page-header .logo {
-    color: #c47d0e;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 6px;
-  }
-  .page-header h1 {
-    font-size: 15px;
-    font-weight: 500;
-    color: #444;
-    margin-bottom: 4px;
-  }
-  .page-header p {
-    font-size: 13px;
-    color: #888;
-    line-height: 1.5;
-  }
-
-  .journey-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 360px;
-  }
-  .journey-tab {
-    flex: 1;
-    padding: 10px 8px;
-    border-radius: 10px;
-    border: 1.5px solid #ddd;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.15s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-  }
-  .journey-tab.active {
-    background: #fff;
-    color: #111;
-    border-color: #bbb;
-  }
-  .journey-tab.inactive {
-    background: transparent;
-    color: #888;
-    border-color: #ddd;
-  }
-
-  .screen-context {
-    max-width: 360px;
-    width: 100%;
-    margin-bottom: 12px;
-    min-height: 42px;
-  }
-  .screen-context .who {
-    font-size: 13px;
-    font-weight: 500;
-    color: #222;
-    margin-bottom: 2px;
-  }
-  .screen-context .desc {
-    font-size: 12px;
-    color: #888;
-    line-height: 1.4;
-  }
-
-  .phone-wrap {
-    width: 100%;
-    max-width: 360px;
-    background: #0a0a0a;
-    border-radius: 28px;
-    border: 2px solid #2a2a2a;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  }
-
-  .phone-screen {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 480px;
-    overflow: hidden;
-  }
-
-  .phone-nav-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    border-top: 1px solid #1e1e1e;
-    background: #0a0a0a;
-    flex-shrink: 0;
-  }
-  .nav-btn {
-    background: #1e1e1e;
-    border: none;
-    color: #888;
-    padding: 7px 16px;
-    border-radius: 9px;
-    font-size: 13px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: opacity 0.15s;
-  }
-  .nav-btn.next-btn {
-    background: #f5a623;
-    color: #000;
-    font-weight: 600;
-  }
-  .step-dots {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-  }
-
-  /* RTR inner styles */
+  .page-header { text-align: center; margin-bottom: 28px; max-width: 520px; }
+  .page-header .logo { color: #c47d0e; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .page-header h1 { font-size: 15px; font-weight: 500; color: #444; margin-bottom: 4px; }
+  .page-header p { font-size: 13px; color: #888; line-height: 1.5; }
+  .journey-tabs { display: flex; gap: 8px; margin-bottom: 20px; width: 100%; max-width: 360px; }
+  .journey-tab { flex: 1; padding: 10px 8px; border-radius: 10px; border: 1.5px solid #ddd; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; gap: 5px; }
+  .journey-tab.active { background: #fff; color: #111; border-color: #bbb; }
+  .journey-tab.inactive { background: transparent; color: #888; border-color: #ddd; }
+  .screen-context { max-width: 360px; width: 100%; margin-bottom: 12px; min-height: 42px; }
+  .screen-context .who { font-size: 13px; font-weight: 500; color: #222; margin-bottom: 2px; }
+  .screen-context .desc { font-size: 12px; color: #888; line-height: 1.4; }
+  .phone-wrap { width: 100%; max-width: 360px; background: #0a0a0a; border-radius: 28px; border: 2px solid #2a2a2a; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+  .phone-screen { flex: 1; display: flex; flex-direction: column; min-height: 480px; overflow: hidden; }
+  .phone-nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top: 1px solid #1e1e1e; background: #0a0a0a; flex-shrink: 0; }
+  .nav-btn { background: #1e1e1e; border: none; color: #888; padding: 7px 16px; border-radius: 9px; font-size: 13px; cursor: pointer; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 5px; }
+  .nav-btn.next-btn { background: #f5a623; color: #000; font-weight: 600; }
+  .step-dots { display: flex; gap: 5px; align-items: center; }
   .rtr-nav { background: #111; padding: 13px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1e1e1e; flex-shrink: 0; }
   .rtr-badge { font-size: 10px; background: #1e1e1e; color: #f5a623; padding: 3px 9px; border-radius: 4px; font-weight: 500; }
-  .rtr-card { background: #111; border: 1px solid #1e1e1e; border-radius: 10px; padding: 14px; margin: 0 0 10px; }
   .rtr-btn { width: 100%; padding: 11px; background: #f5a623; color: #000; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
   .rtr-btn-ghost { width: 100%; padding: 10px; background: transparent; color: #f5a623; border: 1px solid #333; border-radius: 8px; font-size: 13px; cursor: pointer; font-family: 'Inter', sans-serif; }
-  .rtr-input { width: 100%; padding: 9px 12px; background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; font-size: 13px; color: #fff; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+  .rtr-btn-run { flex: 1; padding: 14px 8px; background: #1e1e1e; color: #fff; border: 1px solid #2a2a2a; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'Inter', sans-serif; text-align: center; }
+  .rtr-btn-run:hover { border-color: #f5a623; }
+  .rtr-input { width: 100%; padding: 10px 12px; background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; font-size: 13px; color: #fff; box-sizing: border-box; font-family: 'Inter', sans-serif; }
   .rtr-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #1e1e1e; }
   .rtr-row:last-of-type { border-bottom: none; }
   .rtr-check { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
   .is-checked { background: #1a3a1a; color: #4caf76; }
   .is-booked { background: #0d1a2a; color: #5b9bd5; }
   .scroll-area { padding: 14px 16px; overflow-y: auto; flex: 1; }
+  .run-pill { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; padding: 2px 8px; border-radius: 4px; }
+  .pill-road { background: #0d1a2a; color: #5b9bd5; }
+  .pill-green { background: #1a3a1a; color: #4caf76; }
 
-  /* Mobile full-screen mode */
   @media (max-width: 480px) {
     body { background: #0a0a0a; padding: 0; justify-content: flex-start; }
     .page-header { display: none; }
-    .journey-tabs {
-      max-width: 100%;
-      padding: 12px 16px 0;
-      background: #0a0a0a;
-    }
+    .journey-tabs { max-width: 100%; padding: 12px 16px 0; background: #0a0a0a; }
     .journey-tab.active { background: #1e1e1e; color: #fff; border-color: #333; }
     .journey-tab.inactive { background: transparent; color: #555; border-color: #222; }
-    .screen-context {
-      max-width: 100%;
-      padding: 10px 16px 0;
-      background: #0a0a0a;
-    }
+    .screen-context { max-width: 100%; padding: 10px 16px 0; background: #0a0a0a; }
     .screen-context .who { color: #ccc; }
     .screen-context .desc { color: #555; }
-    .phone-wrap {
-      max-width: 100%;
-      border-radius: 0;
-      border: none;
-      box-shadow: none;
-    }
+    .phone-wrap { max-width: 100%; border-radius: 0; border: none; box-shadow: none; }
     .phone-nav-bar { border-top: 1px solid #1e1e1e; }
   }
 </style>
@@ -213,7 +86,6 @@
 
 <div class="phone-wrap">
   <div class="phone-screen" id="phone-content"></div>
-
   <div class="phone-nav-bar">
     <button class="nav-btn" id="prev-btn" onclick="prevStep()">
       <i class="ti ti-arrow-left" aria-hidden="true" style="font-size:13px;"></i> Prev
@@ -233,78 +105,48 @@ const journeys = {
     steps: [
       {
         who: 'Run leader - home screen',
-        desc: "Leader opens the site before the run - sees tonight's groups with a check-in CTA",
+        desc: "Leader sees tonight's runs at a glance and a single search box to check anyone in",
         html: `
           <div class="rtr-nav">
             <span style="color:#f5a623;font-size:15px;font-weight:600;">radcliffe.run</span>
             <span class="rtr-badge">Leader</span>
           </div>
           <div class="scroll-area">
-            <p style="color:#555;font-size:10px;margin:0 0 10px;text-transform:uppercase;letter-spacing:.5px;">Tonight's runs</p>
-            <div class="rtr-card">
-              <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;">
-                <div>
-                  <p style="color:#fff;font-size:13px;font-weight:600;margin:0;">Thursday 6k</p>
-                  <p style="color:#888;font-size:11px;margin:3px 0 0;">Radcliffe Market &bull; 18:30</p>
-                </div>
-                <span style="font-size:10px;background:#0d1a2a;color:#5b9bd5;padding:2px 7px;border-radius:4px;">Road</span>
+            <p style="color:#555;font-size:10px;margin:0 0 10px;text-transform:uppercase;letter-spacing:.5px;">Tonight - Thu 22 May</p>
+            <div style="display:flex;gap:8px;margin-bottom:16px;">
+              <div style="flex:1;background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;">
+                <p style="color:#fff;font-size:13px;font-weight:600;margin:0 0 2px;">Thursday 6k</p>
+                <p style="color:#888;font-size:11px;margin:0 0 8px;">Road &bull; 18:30</p>
+                <p style="color:#f5a623;font-size:18px;font-weight:600;margin:0;">3</p>
+                <p style="color:#555;font-size:10px;margin:0;">checked in</p>
               </div>
-              <p style="color:#555;font-size:11px;margin:0 0 10px;">You are leading this run</p>
-              <button class="rtr-btn">Start check-in</button>
-            </div>
-            <div class="rtr-card" style="opacity:.55;">
-              <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;">
-                <div>
-                  <p style="color:#fff;font-size:13px;font-weight:600;margin:0;">Thursday 8k</p>
-                  <p style="color:#888;font-size:11px;margin:3px 0 0;">Radcliffe Market &bull; 18:30</p>
-                </div>
-                <span style="font-size:10px;background:#0d1a2a;color:#5b9bd5;padding:2px 7px;border-radius:4px;">Road</span>
+              <div style="flex:1;background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;">
+                <p style="color:#fff;font-size:13px;font-weight:600;margin:0 0 2px;">Thursday 8k</p>
+                <p style="color:#888;font-size:11px;margin:0 0 8px;">Road &bull; 18:30</p>
+                <p style="color:#f5a623;font-size:18px;font-weight:600;margin:0;">1</p>
+                <p style="color:#555;font-size:10px;margin:0;">checked in</p>
               </div>
-              <p style="color:#555;font-size:11px;margin:0;">Leader: Mark T</p>
             </div>
+            <div style="position:relative;">
+              <i class="ti ti-search" aria-hidden="true" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#555;font-size:15px;"></i>
+              <input class="rtr-input" placeholder="Search for a runner..." style="padding-left:34px;" />
+            </div>
+            <p style="color:#555;font-size:11px;margin:10px 0 0;text-align:center;">Type a name to check someone in</p>
           </div>`
       },
       {
-        who: 'Run leader - active check-in',
-        desc: 'Leader searches for runners as they arrive and taps to check them in',
+        who: 'Run leader - search results',
+        desc: 'Leader types a name - matching members appear. No need to pick a run first',
         html: `
           <div class="rtr-nav">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <i class="ti ti-arrow-left" aria-hidden="true" style="color:#555;font-size:16px;"></i>
-              <span style="color:#fff;font-size:13px;font-weight:600;">Thursday 6k</span>
-            </div>
-            <span style="color:#4caf76;font-size:12px;font-weight:500;">3 checked in</span>
+            <span style="color:#f5a623;font-size:15px;font-weight:600;">radcliffe.run</span>
+            <span class="rtr-badge">Leader</span>
           </div>
           <div class="scroll-area">
-            <input class="rtr-input" placeholder="Search by name..." style="margin-bottom:12px;" />
-            <div class="rtr-row">
-              <div><p style="color:#fff;font-size:12px;margin:0;font-weight:500;">Sarah Mitchell</p><p style="color:#4caf76;font-size:11px;margin:2px 0 0;">Checked in 18:22</p></div>
-              <div class="rtr-check is-checked"><i class="ti ti-check" aria-hidden="true"></i></div>
+            <div style="position:relative;margin-bottom:10px;">
+              <i class="ti ti-search" aria-hidden="true" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#555;font-size:15px;"></i>
+              <input class="rtr-input" value="dan" style="padding-left:34px;" />
             </div>
-            <div class="rtr-row">
-              <div><p style="color:#fff;font-size:12px;margin:0;font-weight:500;">James Booth</p><p style="color:#4caf76;font-size:11px;margin:2px 0 0;">Checked in 18:25</p></div>
-              <div class="rtr-check is-checked"><i class="ti ti-check" aria-hidden="true"></i></div>
-            </div>
-            <div class="rtr-row">
-              <div><p style="color:#fff;font-size:12px;margin:0;font-weight:500;">Priya Kapoor</p><p style="color:#4caf76;font-size:11px;margin:2px 0 0;">Checked in 18:27</p></div>
-              <div class="rtr-check is-checked"><i class="ti ti-check" aria-hidden="true"></i></div>
-            </div>
-            <div style="margin-top:12px;"><button class="rtr-btn-ghost">+ Add walk-up</button></div>
-          </div>`
-      },
-      {
-        who: 'Run leader - finding a runner',
-        desc: 'Type a name, matching members appear - one tap to check in',
-        html: `
-          <div class="rtr-nav">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <i class="ti ti-arrow-left" aria-hidden="true" style="color:#555;font-size:16px;"></i>
-              <span style="color:#fff;font-size:13px;font-weight:600;">Thursday 6k</span>
-            </div>
-            <span style="color:#4caf76;font-size:12px;font-weight:500;">3 checked in</span>
-          </div>
-          <div class="scroll-area">
-            <input class="rtr-input" value="dan" style="margin-bottom:10px;" />
             <p style="color:#555;font-size:11px;margin:0 0 8px;">2 results</p>
             <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;overflow:hidden;">
               <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border-bottom:1px solid #1e1e1e;">
@@ -312,22 +154,92 @@ const journeys = {
                   <p style="color:#fff;font-size:13px;margin:0;font-weight:500;">Daniel Shaw</p>
                   <p style="color:#888;font-size:11px;margin:2px 0 0;">Member since Jan 2024</p>
                 </div>
-                <button style="background:#f5a623;border:none;color:#000;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;">Check in</button>
+                <i class="ti ti-chevron-right" aria-hidden="true" style="color:#555;font-size:16px;"></i>
               </div>
               <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 13px;">
                 <div>
                   <p style="color:#fff;font-size:13px;margin:0;font-weight:500;">Danielle Marsh</p>
                   <p style="color:#888;font-size:11px;margin:2px 0 0;">Member since Mar 2025</p>
                 </div>
-                <button style="background:#f5a623;border:none;color:#000;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;">Check in</button>
+                <i class="ti ti-chevron-right" aria-hidden="true" style="color:#555;font-size:16px;"></i>
               </div>
             </div>
             <div style="margin-top:10px;"><button class="rtr-btn-ghost">Not on this list?</button></div>
           </div>`
       },
       {
+        who: 'Run leader - assign to a run',
+        desc: "Runner found - leader taps which group they're joining tonight",
+        html: `
+          <div class="rtr-nav">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <i class="ti ti-arrow-left" aria-hidden="true" style="color:#555;font-size:16px;"></i>
+              <span style="color:#fff;font-size:13px;font-weight:600;">Check in</span>
+            </div>
+          </div>
+          <div class="scroll-area">
+            <div style="display:flex;align-items:center;gap:12px;padding:4px 0 20px;">
+              <div style="width:44px;height:44px;border-radius:50%;background:#1e1e1e;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="color:#888;font-size:14px;font-weight:500;">DS</span>
+              </div>
+              <div>
+                <p style="color:#fff;font-size:15px;font-weight:600;margin:0;">Daniel Shaw</p>
+                <p style="color:#888;font-size:11px;margin:3px 0 0;">Member since Jan 2024</p>
+              </div>
+            </div>
+            <p style="color:#555;font-size:11px;margin:0 0 10px;text-transform:uppercase;letter-spacing:.5px;">Which group tonight?</p>
+            <div style="display:flex;gap:8px;margin-bottom:16px;">
+              <button class="rtr-btn-run">
+                <p style="font-size:13px;font-weight:600;margin:0 0 3px;">Thursday 6k</p>
+                <p style="font-size:10px;color:#888;margin:0;">Road</p>
+              </button>
+              <button class="rtr-btn-run">
+                <p style="font-size:13px;font-weight:600;margin:0 0 3px;">Thursday 8k</p>
+                <p style="font-size:10px;color:#888;margin:0;">Road</p>
+              </button>
+            </div>
+            <div style="border-top:1px solid #1e1e1e;padding-top:14px;">
+              <p style="color:#555;font-size:11px;margin:0 0 8px;">Emergency contact on file</p>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <i class="ti ti-shield-check" aria-hidden="true" style="color:#4caf76;font-size:16px;"></i>
+                <p style="color:#4caf76;font-size:12px;margin:0;">Jane Shaw (spouse) &bull; 07700 900123</p>
+              </div>
+            </div>
+          </div>`
+      },
+      {
+        who: 'Run leader - checked in',
+        desc: "One tap and they're done - counter updates, leader goes straight back to search",
+        html: `
+          <div class="rtr-nav">
+            <span style="color:#f5a623;font-size:15px;font-weight:600;">radcliffe.run</span>
+            <span class="rtr-badge">Leader</span>
+          </div>
+          <div class="scroll-area" style="text-align:center;padding-top:28px;">
+            <div style="width:54px;height:54px;border-radius:50%;background:#1a3a1a;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+              <i class="ti ti-check" aria-hidden="true" style="color:#4caf76;font-size:28px;"></i>
+            </div>
+            <p style="color:#fff;font-size:15px;font-weight:600;margin:0 0 3px;">Checked in</p>
+            <p style="color:#888;font-size:12px;margin:0 0 6px;">Daniel Shaw</p>
+            <span class="run-pill pill-road">Thursday 6k</span>
+            <div style="display:flex;gap:8px;margin:24px 0 0;">
+              <div style="flex:1;background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;text-align:center;">
+                <p style="color:#f5a623;font-size:20px;font-weight:600;margin:0;">4</p>
+                <p style="color:#555;font-size:10px;margin:2px 0 0;">6k checked in</p>
+              </div>
+              <div style="flex:1;background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;text-align:center;">
+                <p style="color:#f5a623;font-size:20px;font-weight:600;margin:0;">1</p>
+                <p style="color:#555;font-size:10px;margin:2px 0 0;">8k checked in</p>
+              </div>
+            </div>
+            <div style="margin-top:16px;">
+              <button class="rtr-btn">Check in another runner</button>
+            </div>
+          </div>`
+      },
+      {
         who: 'Run leader - unregistered runner',
-        desc: "Not in the system - leader logs their name and directs them to register",
+        desc: "Not in the system - leader logs their name, picks their group, prompts them to register",
         html: `
           <div class="rtr-nav">
             <div style="display:flex;align-items:center;gap:8px;">
@@ -339,13 +251,18 @@ const journeys = {
             <div style="background:#1a1000;border:1px solid #3a2200;border-radius:10px;padding:11px;margin-bottom:14px;">
               <p style="color:#f5a623;font-size:11px;margin:0;line-height:1.5;">No emergency contact details on file. Please ask them to register after the run.</p>
             </div>
-            <div style="margin-bottom:10px;">
+            <div style="margin-bottom:8px;">
               <label style="color:#555;font-size:10px;display:block;margin-bottom:5px;">First name</label>
               <input class="rtr-input" placeholder="e.g. Tom" />
             </div>
-            <div style="margin-bottom:14px;">
+            <div style="margin-bottom:12px;">
               <label style="color:#555;font-size:10px;display:block;margin-bottom:5px;">Last name</label>
               <input class="rtr-input" placeholder="e.g. Hughes" />
+            </div>
+            <p style="color:#555;font-size:10px;margin:0 0 8px;text-transform:uppercase;letter-spacing:.5px;">Which group tonight?</p>
+            <div style="display:flex;gap:8px;margin-bottom:14px;">
+              <button class="rtr-btn-run" style="font-size:12px;">Thursday 6k</button>
+              <button class="rtr-btn-run" style="font-size:12px;">Thursday 8k</button>
             </div>
             <button class="rtr-btn" style="margin-bottom:10px;">Log attendance</button>
             <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;text-align:center;">
@@ -373,13 +290,13 @@ const journeys = {
           </div>
           <div class="scroll-area">
             <p style="color:#555;font-size:10px;margin:0 0 10px;text-transform:uppercase;letter-spacing:.5px;">This Thursday</p>
-            <div class="rtr-card">
+            <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:14px;margin-bottom:10px;">
               <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:5px;">
                 <div>
                   <p style="color:#fff;font-size:13px;font-weight:600;margin:0;">Thursday 6k</p>
                   <p style="color:#888;font-size:11px;margin:3px 0 0;">Radcliffe Market &bull; 18:30</p>
                 </div>
-                <span style="font-size:10px;background:#0d1a2a;color:#5b9bd5;padding:2px 7px;border-radius:4px;">Road</span>
+                <span class="run-pill pill-road">Road</span>
               </div>
               <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;">
                 <div style="flex:1;background:#1e1e1e;border-radius:3px;height:4px;overflow:hidden;">
@@ -389,13 +306,13 @@ const journeys = {
               </div>
               <button class="rtr-btn">Book your place</button>
             </div>
-            <div class="rtr-card" style="opacity:.6;">
+            <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:14px;opacity:.6;">
               <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:5px;">
                 <div>
                   <p style="color:#fff;font-size:13px;font-weight:600;margin:0;">Thursday 8k</p>
                   <p style="color:#888;font-size:11px;margin:3px 0 0;">Radcliffe Market &bull; 18:30</p>
                 </div>
-                <span style="font-size:10px;background:#0d1a2a;color:#5b9bd5;padding:2px 7px;border-radius:4px;">Road</span>
+                <span class="run-pill pill-road">Road</span>
               </div>
               <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;">
                 <div style="flex:1;background:#1e1e1e;border-radius:3px;height:4px;overflow:hidden;">
@@ -409,7 +326,7 @@ const journeys = {
       },
       {
         who: 'Runner - booking confirmed',
-        desc: 'Instant confirmation with run details - can cancel if plans change',
+        desc: 'Instant confirmation - their group is recorded and they can cancel if plans change',
         html: `
           <div class="rtr-nav">
             <div style="display:flex;align-items:center;gap:8px;">
@@ -423,7 +340,7 @@ const journeys = {
             </div>
             <p style="color:#fff;font-size:15px;font-weight:600;margin:0 0 3px;">You're booked in!</p>
             <p style="color:#888;font-size:12px;margin:0 0 22px;">We'll see you Thursday evening</p>
-            <div class="rtr-card" style="text-align:left;margin:0 0 12px;">
+            <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:14px;text-align:left;margin-bottom:12px;">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px;">
                 <i class="ti ti-run" aria-hidden="true" style="color:#888;font-size:15px;flex-shrink:0;"></i>
                 <p style="color:#fff;font-size:12px;font-weight:500;margin:0;">Thursday 6k - Road</p>
@@ -442,98 +359,100 @@ const journeys = {
       },
       {
         who: 'Run leader - home screen',
-        desc: "Leader sees booking count before the run - knows roughly how many are coming",
+        desc: "Leader sees booking counts per group before the run starts",
         html: `
           <div class="rtr-nav">
             <span style="color:#f5a623;font-size:15px;font-weight:600;">radcliffe.run</span>
             <span class="rtr-badge">Leader</span>
           </div>
           <div class="scroll-area">
-            <p style="color:#555;font-size:10px;margin:0 0 10px;text-transform:uppercase;letter-spacing:.5px;">Tonight's runs</p>
-            <div class="rtr-card">
-              <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;">
-                <div>
-                  <p style="color:#fff;font-size:13px;font-weight:600;margin:0;">Thursday 6k</p>
-                  <p style="color:#888;font-size:11px;margin:3px 0 0;">Radcliffe Market &bull; 18:30</p>
-                </div>
-                <span style="font-size:10px;background:#0d1a2a;color:#5b9bd5;padding:2px 7px;border-radius:4px;">Road</span>
+            <p style="color:#555;font-size:10px;margin:0 0 10px;text-transform:uppercase;letter-spacing:.5px;">Tonight - Thu 22 May</p>
+            <div style="display:flex;gap:8px;margin-bottom:16px;">
+              <div style="flex:1;background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;">
+                <p style="color:#fff;font-size:13px;font-weight:600;margin:0 0 2px;">Thursday 6k</p>
+                <p style="color:#888;font-size:11px;margin:0 0 8px;">Road &bull; 18:30</p>
+                <p style="color:#f5a623;font-size:18px;font-weight:600;margin:0;">17</p>
+                <p style="color:#555;font-size:10px;margin:0;">booked</p>
               </div>
-              <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-                <div style="display:flex;align-items:center;gap:5px;">
-                  <i class="ti ti-users" aria-hidden="true" style="color:#888;font-size:13px;"></i>
-                  <span style="color:#f5a623;font-size:12px;font-weight:500;">17 booked</span>
-                </div>
-                <span style="color:#2a2a2a;">|</span>
-                <span style="color:#555;font-size:11px;">0 checked in so far</span>
+              <div style="flex:1;background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;">
+                <p style="color:#fff;font-size:13px;font-weight:600;margin:0 0 2px;">Thursday 8k</p>
+                <p style="color:#888;font-size:11px;margin:0 0 8px;">Road &bull; 18:30</p>
+                <p style="color:#f5a623;font-size:18px;font-weight:600;margin:0;">11</p>
+                <p style="color:#555;font-size:10px;margin:0;">booked</p>
               </div>
-              <button class="rtr-btn">Start check-in</button>
             </div>
+            <div style="position:relative;">
+              <i class="ti ti-search" aria-hidden="true" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#555;font-size:15px;"></i>
+              <input class="rtr-input" placeholder="Search for a runner..." style="padding-left:34px;" />
+            </div>
+            <p style="color:#555;font-size:11px;margin:10px 0 0;text-align:center;">Type a name to check someone in</p>
           </div>`
       },
       {
-        who: 'Run leader - check-in with bookings',
-        desc: 'Booked runners pre-populate the list - tap to mark as arrived, walk-ups can be added',
+        who: 'Run leader - search result with booking',
+        desc: "Runner found - their booked group is shown, leader just confirms with one tap",
         html: `
           <div class="rtr-nav">
             <div style="display:flex;align-items:center;gap:8px;">
               <i class="ti ti-arrow-left" aria-hidden="true" style="color:#555;font-size:16px;"></i>
-              <span style="color:#fff;font-size:13px;font-weight:600;">Thursday 6k</span>
+              <span style="color:#fff;font-size:13px;font-weight:600;">Check in</span>
             </div>
-            <span style="color:#4caf76;font-size:12px;font-weight:500;">2 / 17</span>
           </div>
           <div class="scroll-area">
-            <input class="rtr-input" placeholder="Search booked runners..." style="margin-bottom:12px;" />
-            <div style="display:flex;gap:8px;margin-bottom:10px;">
-              <span style="font-size:10px;background:#1a3a1a;color:#4caf76;padding:3px 9px;border-radius:4px;">Arrived</span>
-              <span style="font-size:10px;background:#0d1a2a;color:#5b9bd5;padding:3px 9px;border-radius:4px;">Booked</span>
+            <div style="display:flex;align-items:center;gap:12px;padding:4px 0 20px;">
+              <div style="width:44px;height:44px;border-radius:50%;background:#1e1e1e;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="color:#888;font-size:14px;font-weight:500;">DS</span>
+              </div>
+              <div>
+                <p style="color:#fff;font-size:15px;font-weight:600;margin:0;">Daniel Shaw</p>
+                <p style="color:#888;font-size:11px;margin:3px 0 0;">Member since Jan 2024</p>
+              </div>
             </div>
-            <div class="rtr-row">
-              <div><p style="color:#fff;font-size:12px;margin:0;font-weight:500;">Sarah Mitchell</p><p style="color:#4caf76;font-size:11px;margin:2px 0 0;">Arrived 18:22</p></div>
-              <div class="rtr-check is-checked"><i class="ti ti-check" aria-hidden="true"></i></div>
+            <div style="background:#0d1a2a;border:1px solid #1a3a5a;border-radius:10px;padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+              <i class="ti ti-calendar-check" aria-hidden="true" style="color:#5b9bd5;font-size:18px;flex-shrink:0;"></i>
+              <div>
+                <p style="color:#5b9bd5;font-size:12px;font-weight:500;margin:0;">Booked on Thursday 6k</p>
+                <p style="color:#4a6a8a;font-size:11px;margin:2px 0 0;">Booked 3 days ago</p>
+              </div>
             </div>
-            <div class="rtr-row">
-              <div><p style="color:#fff;font-size:12px;margin:0;font-weight:500;">James Booth</p><p style="color:#5b9bd5;font-size:11px;margin:2px 0 0;">Booked</p></div>
-              <div class="rtr-check is-booked"><i class="ti ti-user-check" aria-hidden="true"></i></div>
+            <button class="rtr-btn" style="margin-bottom:10px;">Confirm check-in for 6k</button>
+            <button class="rtr-btn-ghost" style="font-size:12px;">They're on the 8k instead</button>
+            <div style="border-top:1px solid #1e1e1e;padding-top:14px;margin-top:14px;">
+              <p style="color:#555;font-size:11px;margin:0 0 6px;">Emergency contact on file</p>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <i class="ti ti-shield-check" aria-hidden="true" style="color:#4caf76;font-size:15px;"></i>
+                <p style="color:#4caf76;font-size:11px;margin:0;">Jane Shaw (spouse) &bull; 07700 900123</p>
+              </div>
             </div>
-            <div class="rtr-row">
-              <div><p style="color:#fff;font-size:12px;margin:0;font-weight:500;">Priya Kapoor</p><p style="color:#5b9bd5;font-size:11px;margin:2px 0 0;">Booked</p></div>
-              <div class="rtr-check is-booked"><i class="ti ti-user-check" aria-hidden="true"></i></div>
-            </div>
-            <div class="rtr-row">
-              <div><p style="color:#fff;font-size:12px;margin:0;font-weight:500;">Daniel Shaw</p><p style="color:#5b9bd5;font-size:11px;margin:2px 0 0;">Booked</p></div>
-              <div class="rtr-check is-booked"><i class="ti ti-user-check" aria-hidden="true"></i></div>
-            </div>
-            <div style="margin-top:12px;"><button class="rtr-btn-ghost">+ Add walk-up</button></div>
           </div>`
       },
       {
-        who: 'Run leader - walk-up / unregistered',
-        desc: 'Same as check-in only - name logged, directed to register for next time',
+        who: 'Run leader - checked in',
+        desc: "Done - counter updates instantly, leader goes straight back to search for the next runner",
         html: `
           <div class="rtr-nav">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <i class="ti ti-arrow-left" aria-hidden="true" style="color:#555;font-size:16px;"></i>
-              <span style="color:#fff;font-size:13px;font-weight:600;">Add walk-up</span>
-            </div>
+            <span style="color:#f5a623;font-size:15px;font-weight:600;">radcliffe.run</span>
+            <span class="rtr-badge">Leader</span>
           </div>
-          <div class="scroll-area">
-            <div style="background:#1a1000;border:1px solid #3a2200;border-radius:10px;padding:11px;margin-bottom:14px;">
-              <p style="color:#f5a623;font-size:11px;margin:0;line-height:1.5;">No emergency contact details on file. Please ask them to register after the run.</p>
+          <div class="scroll-area" style="text-align:center;padding-top:28px;">
+            <div style="width:54px;height:54px;border-radius:50%;background:#1a3a1a;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+              <i class="ti ti-check" aria-hidden="true" style="color:#4caf76;font-size:28px;"></i>
             </div>
-            <div style="margin-bottom:10px;">
-              <label style="color:#555;font-size:10px;display:block;margin-bottom:5px;">Search existing members first</label>
-              <input class="rtr-input" placeholder="e.g. Tom Hughes" style="margin-bottom:6px;" />
-              <p style="color:#444;font-size:11px;margin:0;">No results found.</p>
+            <p style="color:#fff;font-size:15px;font-weight:600;margin:0 0 3px;">Checked in</p>
+            <p style="color:#888;font-size:12px;margin:0 0 6px;">Daniel Shaw</p>
+            <span class="run-pill pill-road">Thursday 6k</span>
+            <div style="display:flex;gap:8px;margin:24px 0 0;">
+              <div style="flex:1;background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;text-align:center;">
+                <p style="color:#f5a623;font-size:20px;font-weight:600;margin:0;">4</p>
+                <p style="color:#555;font-size:10px;margin:2px 0 0;">6k checked in</p>
+              </div>
+              <div style="flex:1;background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;text-align:center;">
+                <p style="color:#f5a623;font-size:20px;font-weight:600;margin:0;">1</p>
+                <p style="color:#555;font-size:10px;margin:2px 0 0;">8k checked in</p>
+              </div>
             </div>
-            <div style="border-top:1px solid #1e1e1e;padding-top:12px;margin-bottom:14px;">
-              <label style="color:#555;font-size:10px;display:block;margin-bottom:8px;">Log as guest</label>
-              <input class="rtr-input" placeholder="First name" style="margin-bottom:8px;" />
-              <input class="rtr-input" placeholder="Last name" />
-            </div>
-            <button class="rtr-btn" style="margin-bottom:10px;">Log attendance</button>
-            <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:12px;text-align:center;">
-              <p style="color:#555;font-size:11px;margin:0 0 5px;">Ask them to sign up at</p>
-              <p style="color:#f5a623;font-size:14px;font-weight:600;margin:0;">radcliffe.run/join</p>
+            <div style="margin-top:16px;">
+              <button class="rtr-btn">Check in another runner</button>
             </div>
           </div>`
       }
@@ -560,7 +479,6 @@ function render() {
 function switchJourney(j) { journey = j; step = 0; render(); }
 function nextStep() { if (step < journeys[journey].steps.length - 1) { step++; render(); } }
 function prevStep() { if (step > 0) { step--; render(); } }
-
 render();
 </script>
 </body>
