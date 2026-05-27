@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RTR Run Leader Sign-up (preview)</title>
+<style>
+:root {
+  --bg: #0a0a0a; --card: #111111; --card-hi: #1a1a1a;
+  --border: #1e1e1e; --border-2: #2a2a2a;
+  --orange: #f5a623; --orange-lt: #f7b84b; --orange-dk: #c47d0e;
+  --white: #ffffff; --dim: #e0e0e0; --muted: #888888; --faint: #555555;
+  --green: #4caf76; --green-bg: #0d1a0d; --green-border: #1a3a1a;
+  --blue: #5b9bd5; --blue-bg: #0d1221; --blue-border: #1a2a44;
+  --red: #e05252;
+  --text-sm: 13px; --text-base: 14px; --text-md: 15px;
+}
+html[data-theme="light"] {
+  --bg: #f4f4f4; --card: #ffffff; --card-hi: #f0f0f0;
+  --border: #e0e0e0; --border-2: #d0d0d0;
+  --orange: #c47d0e; --orange-lt: #e09010; --orange-dk: #9a5f08;
+  --white: #0a0a0a; --dim: #1a1a1a; --muted: #444444; --faint: #555555;
+  --green: #2e7d2e; --green-bg: #edf7ed; --green-border: #b8deb8;
+  --blue: #2d6ca6; --blue-bg: #e8f0f8; --blue-border: #b3cceb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg); color: var(--dim);
+  line-height: 1.55; padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+.toprow { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-badge {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--orange); color: #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 15px; letter-spacing: -0.5px;
+}
+.brand h1 { font-size: 18px; font-weight: 700; color: var(--white); letter-spacing: -0.3px; }
+.brand p { font-size: 12px; color: var(--muted); }
+.themebtn {
+  background: var(--card); border: 1px solid var(--border-2); color: var(--dim);
+  font-size: 12px; padding: 7px 12px; border-radius: 8px; cursor: pointer;
+  font-family: inherit;
+}
+.themebtn:hover { background: var(--card-hi); }
+
+.intro {
+  background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: 10px; padding: 16px 18px; margin-bottom: 18px;
+}
+.intro p { font-size: var(--text-base); margin-bottom: 8px; }
+.intro p:last-child { margin-bottom: 0; }
+.intro-lead { color: var(--white); font-weight: 600; }
+.intro-ask { color: var(--orange-lt); font-weight: 500; }
+
+.defaults {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px 18px; margin-bottom: 28px;
+}
+.defaults-head { display: flex; flex-direction: column; margin-bottom: 8px; }
+.defaults-title { color: var(--white); font-weight: 600; font-size: var(--text-md); }
+.defaults-sub { color: var(--muted); font-size: 12px; }
+.defaults-note { font-size: var(--text-sm); color: var(--dim); margin-bottom: 14px; }
+.defaults-toggles { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.deftoggle {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--card-hi); border: 1px solid var(--border-2);
+  border-radius: 8px; padding: 9px 13px; cursor: pointer;
+  font-size: var(--text-sm); color: var(--dim); font-family: inherit;
+  transition: border-color .12s, background .12s;
+}
+.deftoggle:hover { border-color: var(--faint); }
+.deftoggle .dot {
+  width: 16px; height: 16px; border-radius: 5px;
+  border: 1.5px solid var(--faint); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #0a0a0a; font-weight: 800;
+}
+.deftoggle.on { border-color: var(--orange); color: var(--white); background: var(--card); }
+.deftoggle.on .dot { background: var(--orange); border-color: var(--orange); }
+
+.runs-heading { color: var(--white); font-size: 16px; font-weight: 700; margin-bottom: 14px; }
+
+.run {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 0; margin-bottom: 16px; overflow: hidden;
+}
+.run-top {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 14px 18px; border-bottom: 1px solid var(--border);
+}
+.run-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.run-date {
+  text-align: center; flex-shrink: 0; width: 46px;
+}
+.run-date .d { font-size: 20px; font-weight: 800; color: var(--white); line-height: 1; }
+.run-date .m { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+.run-meta { flex: 1; min-width: 140px; }
+.run-meta .title { font-size: var(--text-md); font-weight: 600; color: var(--white); }
+.run-meta .sub { font-size: 12px; color: var(--muted); }
+.terr {
+  font-size: 11px; padding: 3px 9px; border-radius: 6px; font-weight: 600;
+}
+.terr.road { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+.terr.trail { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+
+.groups { padding: 6px 18px 14px; }
+.group-label {
+  font-size: 11px; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .6px; margin: 12px 0 8px; font-weight: 600;
+}
+.roles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.role {
+  background: var(--card-hi); border: 1px solid var(--border-2);
+  border-radius: 8px; padding: 10px 12px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.role-info { min-width: 0; }
+.role-name { font-size: var(--text-sm); font-weight: 600; color: var(--dim); }
+.role-status { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.role.open { border-style: dashed; border-color: var(--orange-dk); }
+.role.mine { border-color: var(--green); background: var(--green-bg); }
+.claimbtn {
+  flex-shrink: 0; border-radius: 7px; padding: 6px 11px;
+  font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit;
+  border: 1px solid var(--orange); background: var(--orange); color: #0a0a0a;
+}
+.claimbtn:hover { background: var(--orange-lt); }
+.claimbtn.leave {
+  background: transparent; color: var(--green); border-color: var(--green);
+}
+.claimbtn.leave:hover { background: var(--green-bg); }
+.role-filled-names { font-size: 11px; color: var(--green); margin-top: 2px; }
+.full-note {
+  font-size: 12px; color: var(--muted); margin-top: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+@media (max-width: 520px) { .roles { grid-template-columns: 1fr; } }
+
+.avail-row { margin-top: 14px; display: flex; }
+.availbtn {
+  background: var(--card-hi); border: 1px solid var(--border-2); color: var(--dim);
+  font-size: 12px; font-weight: 600; padding: 7px 13px; border-radius: 8px; cursor: pointer;
+  font-family: inherit; white-space: nowrap;
+}
+.availbtn:hover { border-color: var(--red); color: var(--red); }
+.availbtn.marked {
+  border-color: var(--red); color: var(--red);
+  background: rgba(224,82,82,0.10); font-weight: 600;
+}
+.availbtn.marked:hover { background: rgba(224,82,82,0.16); }
+.unavail-note {
+  font-size: var(--text-sm); color: var(--muted);
+  padding: 10px 0 2px; font-style: italic;
+}
+.run-unavail { opacity: 0.72; }
+.run-unavail .run-date .d, .run-unavail .run-meta .title { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="toprow">
+    <div class="brand">
+      <div class="brand-badge">RTR</div>
+      <div>
+        <h1>Run leader sign-up</h1>
+        <p>Preview for leader feedback - nothing here is live yet</p>
+      </div>
+    </div>
+    <button class="themebtn" id="themebtn" type="button">Light mode</button>
+  </div>
+
+  <div class="intro">
+    <p class="intro-lead">This is a draft of how claiming run leader roles might work on the website, instead of the WhatsApp polls.</p>
+    <p>Each run is split into roles. You tap to claim a role, and you can see at a glance which roles are still open. More than one of you can claim the same run - that is fine and expected. The aim is simply to make the gaps visible so the front and back do not get left empty.</p>
+    <p class="intro-ask">Have a play, then tell Paul: does this make sense? Would you actually use it? What is missing?</p>
+  </div>
+
+  <div class="defaults">
+    <div class="defaults-head">
+      <span class="defaults-title">My standing defaults</span>
+      <span class="defaults-sub">optional - fill a role automatically when no one else has claimed it</span>
+    </div>
+    <p class="defaults-note">Set yourself as a fallback for the front or back of either group, or for jeffing. You can still change your mind on any given week.</p>
+    <div class="defaults-toggles" id="defaults-toggles"></div>
+  </div>
+
+  <h2 class="runs-heading">Upcoming runs</h2>
+  <div id="runs"></div>
+
+</div>
+
+<script>
+var ME = "You";
+
+var ROLES_MAIN = [
+  { key: "front", label: "Front" },
+  { key: "middle", label: "Middle" },
+  { key: "back", label: "Back" }
+];
+var ROLES_JEFF = [
+  { key: "front", label: "Front" },
+  { key: "back", label: "Back" }
+];
+
+var defaults = {
+  "8k-front": false, "8k-back": false,
+  "5k-front": false, "5k-back": false,
+  "jeff-front": false, "jeff-back": false
+};
+
+var runs = [
+  {
+    date: "29", month: "May", title: "Thursday club run", sub: "Radcliffe Market, 7:00pm",
+    terrain: "trail", unavailable: false,
+    groups: [
+      { name: "8k group", type: "main", claims: { front: ["Dave H"], middle: ["Sarah M", "You"], back: [] } },
+      { name: "5k group", type: "main", claims: { front: [], middle: ["Priya K"], back: ["Tom B"] } },
+      { name: "Jeffing (5k)", type: "jeff", claims: { front: ["Nikki"], back: [] } }
+    ]
+  },
+  {
+    date: "5", month: "Jun", title: "Thursday club run", sub: "Radcliffe Market, 7:00pm",
+    terrain: "trail", unavailable: false,
+    groups: [
+      { name: "8k group", type: "main", claims: { front: ["Mark T"], middle: ["Jo R"], back: [] } },
+      { name: "5k group", type: "main", claims: { front: [], middle: [], back: [] } },
+      { name: "Jeffing (5k)", type: "jeff", claims: { front: [], back: [] } }
+    ]
+  },
+  {
+    date: "12", month: "Jun", title: "Thursday club run", sub: "Radcliffe Market, 7:00pm",
+    terrain: "trail", unavailable: false,
+    groups: [
+      { name: "8k group", type: "main", claims: { front: ["Andy P"], middle: ["Claire D", "Steve L"], back: ["Helen W"] } },
+      { name: "5k group", type: "main", claims: { front: ["Rachel F"], middle: ["Ian C"], back: [] } },
+      { name: "Jeffing (5k)", type: "jeff", claims: { front: ["Sue G"], back: ["Pete M"] } }
+    ]
+  }
+];
+
+function statusText(arr) {
+  if (arr.length === 0) return "open";
+  if (arr.length === 1) return "1 leader";
+  return arr.length + " leaders";
+}
+
+function rolesFor(group) {
+  return group.type === "jeff" ? ROLES_JEFF : ROLES_MAIN;
+}
+
+function render() {
+  var dt = document.getElementById("defaults-toggles");
+  dt.innerHTML = "";
+  [["8k-front","8k front"],["8k-back","8k back"],["5k-front","5k front"],["5k-back","5k back"],["jeff-front","Jeffing front"],["jeff-back","Jeffing back"]].forEach(function(pair){
+    var key = pair[0], label = pair[1];
+    var on = defaults[key];
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "deftoggle" + (on ? " on" : "");
+    b.innerHTML = '<span class="dot">' + (on ? "&#10003;" : "") + '</span>' + label;
+    b.onclick = function(){ defaults[key] = !defaults[key]; render(); };
+    dt.appendChild(b);
+  });
+
+  var c = document.getElementById("runs");
+  c.innerHTML = "";
+  runs.forEach(function(run, ri){
+    var card = document.createElement("div");
+    card.className = "run" + (run.unavailable ? " run-unavail" : "");
+    var availBtn = run.unavailable
+      ? '<button class="availbtn marked" onclick="setAvail(' + ri + ',false)">Marked unavailable</button>'
+      : '<button class="availbtn" onclick="setAvail(' + ri + ',true)">I cannot make this</button>';
+    var top = '<div class="run-top">'
+      + '<div class="run-date"><div class="d">' + run.date + '</div><div class="m">' + run.month + '</div></div>'
+      + '<div class="run-meta"><div class="title">' + run.title + '</div><div class="sub">' + run.sub + '</div></div>'
+      + '<div class="run-actions">'
+      + '<span class="terr ' + run.terrain + '">' + (run.terrain === "road" ? "Road" : "Trail") + '</span>'
+      + availBtn
+      + '</div>'
+      + '</div>';
+    var body = '<div class="groups">';
+    if (run.unavailable) {
+      body += '<div class="unavail-note">You have marked yourself unavailable for this run. You will not be asked to lead it.</div>';
+    }
+    if (!run.unavailable) {
+      run.groups.forEach(function(group, gi){
+        body += '<div class="group-label">' + group.name + '</div>';
+        body += '<div class="roles">';
+        rolesFor(group).forEach(function(role){
+          var arr = group.claims[role.key] || [];
+          var mine = arr.indexOf(ME) !== -1;
+          var cls = "role" + (mine ? " mine" : (arr.length === 0 ? " open" : ""));
+          var names = arr.filter(function(n){ return n !== ME; });
+          var btn;
+          if (mine) {
+            btn = '<button class="claimbtn leave" onclick="leave(' + ri + ',' + gi + ',\'' + role.key + '\')">Leave</button>';
+          } else {
+            btn = '<button class="claimbtn" onclick="claim(' + ri + ',' + gi + ',\'' + role.key + '\')">Claim</button>';
+          }
+          var myStatus = arr.length > 1 ? ("you + " + (arr.length - 1) + " more") : "you";
+          var info = '<div class="role-info"><div class="role-name">' + role.label + '</div>'
+            + '<div class="role-status">' + (mine ? myStatus : statusText(arr)) + '</div>'
+            + (names.length ? '<div class="role-filled-names">' + names.join(", ") + '</div>' : '')
+            + '</div>';
+          body += '<div class="' + cls + '">' + info + btn + '</div>';
+        });
+        body += '</div>';
+      });
+    }
+    body += '</div>';
+    card.innerHTML = top + body;
+    c.appendChild(card);
+  });
+}
+
+function claim(ri, gi, key) {
+  runs[ri].groups[gi].claims[key] = runs[ri].groups[gi].claims[key] || [];
+  runs[ri].groups[gi].claims[key].push(ME);
+  render();
+}
+function leave(ri, gi, key) {
+  var arr = runs[ri].groups[gi].claims[key];
+  var i = arr.indexOf(ME);
+  if (i !== -1) arr.splice(i, 1);
+  render();
+}
+function setAvail(ri, val) {
+  runs[ri].unavailable = val;
+  if (val) {
+    runs[ri].groups.forEach(function(g){
+      Object.keys(g.claims).forEach(function(k){
+        var i = g.claims[k].indexOf(ME);
+        if (i !== -1) g.claims[k].splice(i, 1);
+      });
+    });
+  }
+  render();
+}
+
+document.getElementById("themebtn").onclick = function(){
+  var h = document.documentElement;
+  var light = h.getAttribute("data-theme") === "light";
+  h.setAttribute("data-theme", light ? "dark" : "light");
+  this.textContent = light ? "Light mode" : "Dark mode";
+};
+
+render();
+</script>
+</body>
+</html>
